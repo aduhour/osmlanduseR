@@ -20,7 +20,11 @@ get_osmlanduse <- function(area){
   if (class(area)[1]=="sf"){
     recuadro <- st_bbox(area)
     } else if (is.character(area)){
-      recuadro <- getbb(area)
+      recuadro <- getbb(area) %>%
+        t() %>%
+        as.data.frame() %>%
+        st_as_sf(coords = c("x","y")) %>%
+        st_bbox()
     }
 
 
@@ -280,7 +284,15 @@ waterway <- bind_rows(area_waterway$osm_lines,
 
 osmlanduse <- bind_rows(natural,water,landuse,amenity,aeroway,
                         leisure,protected,
-                        waterway,railway)
+                      waterway,railway) %>%
+  st_make_valid()
+
+recuadro <- st_set_crs(recuadro,st_crs(osmlanduse)) %>%
+  st_as_sfc()
+
+
+osmlanduse <- st_intersection(osmlanduse, recuadro)
+
 osmlanduse
 
 }
