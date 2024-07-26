@@ -88,8 +88,12 @@ measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
 
       osmlanduse <- bind_rows(osmlanduse.overlap,osmlanduse.not.overlap)
 }
+   area <- st_area(osmlanduse) # Removida la superposición, calcula el área
 
-   osmlanduse <- cbind(osmlanduse,st_area(osmlanduse)) # Removida la superposición, calcula el área
+   units(area) <- units
+
+   osmlanduse <- cbind(osmlanduse,area)
+
    osmlanduse
 }
 
