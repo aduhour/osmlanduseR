@@ -2,19 +2,19 @@
 % Please edit documentation in R/get_osmlanduse.R
 \name{get_osmlanduse}
 \alias{get_osmlanduse}
-\title{Landuse data}
+\title{OSM data for landuse/landcover.}
 \usage{
-get_osmlanduse(area)
+get_osmlanduse(area = "Partido de Luján")
 }
 \arguments{
-\item{area}{El área o región a descargar}
+\item{area}{An sf object or the name of an area.}
 }
 \value{
-Un objeto sf (tabla)
+An sf object with landuse data
 }
 \description{
-Download data from OpenStreetMap útil para el mapa de usos del suelo.
+Download data from OpenStreetMap for landuse/landcover analysis.
 }
 \examples{
-use <- get_osmlanduse("Partido de Luján")
+lujan <- get_osmlanduse("Partido de Luján")
 }
