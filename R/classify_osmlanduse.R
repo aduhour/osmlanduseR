@@ -1,49 +1,24 @@
-#' Measure Landuse
+#' Classify Landuse
 #'
-#' Measure area polygons of osm landuse removing overlapping
-#' @param osmlanduse Output of get_osmlanduse.
-#' @param crs Set the CRS to measure area.
-#' @param units The units for the area measures.
-#' @return An sf object with area measures
+#' Classify OpenStreetMap tags into predefined landuse classes
+#'
+#' @param osmlanduse Output of get_osmlanduse or measure_osmlanduse.
+#' @param classes A table with the correspondence between tags and landuse classes.
+#' @return An sf object adding columns representing landuse classes
 #' @examples
 #' landuse <- get_osmlanduse()
 #' measures <- measure_osmlanduse(landuse)
+#' classified <- classify_osmlanduse(measures)
 #' @export
-measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
+measure_osmlanduse <- function(osmlanduse,classes = clc){
 
   require(sf)
   require(tidyverse)
-  require(units)
 
 
-  #osmlanduse <- st_crs(osmlanduse,4326)
+  # if(alguna prueba apra cargar la tabla de clases)
+  data(clc)
 
-  # 5347 es Posgar2007
-  # Completar por que se usa
-
-  osmlanduse <-  st_transform(osmlanduse,crs)
-
-  # medimos el área en este punto para utilizar después
-  # al remover superposición
-
-  osmlanduse.area <-  st_area(osmlanduse)
-  # ------------------------------------------------------------------
-  # Realizamos la diferecia para eliminar superposiciones
-  # ------------------------------------------------------------------
-  # Sugiere eliminar superposición priorizando áreas más pequeñas.
-
-  # Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf,
-  # A. Open land cover from OpenStreetMap and remote sensing.
-  # International Journal of Applied Earth Observationd and Geoinformation, 2017
-
-  #  Issues of overlapping features were resolved by prioritizing smaller
-  # polygons over larger ones (Fig. 3). This is essential for the calculation of
-  # correct area statistics or potential comparisons to other data, and gives
-  # priority to the detail in the map.
-
-  # qué pares de polígonos se superponen?
-
-   overlaps <- st_overlaps(osmlanduse)
 
   # vector de las filas que se superponen con otras, que tienen una sola
   # superposición
