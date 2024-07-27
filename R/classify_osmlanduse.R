@@ -15,9 +15,8 @@ measure_osmlanduse <- function(osmlanduse,classes = clc){
   require(sf)
   require(tidyverse)
 
-
-  # if(alguna prueba apra cargar la tabla de clases)
-  data(clc)
+    # if(alguna prueba apra cargar la tabla de clases)
+  data("clc")
 
 
   # vector de las filas que se superponen con otras, que tienen una sola

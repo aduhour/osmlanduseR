@@ -12,7 +12,7 @@
 measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
 
   require(sf)
-  require(tidyverse)
+  #require(tidyverse)
   require(units)
 
 
@@ -26,7 +26,7 @@ measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
   # medimos el área en este punto para utilizar después
   # al remover superposición
 
-  osmlanduse.area <-  st_area(osmlanduse)
+
   # ------------------------------------------------------------------
   # Realizamos la diferecia para eliminar superposiciones
   # ------------------------------------------------------------------
@@ -43,39 +43,40 @@ measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
 
   # qué pares de polígonos se superponen?
 
-   overlaps <- st_overlaps(osmlanduse)
+  overlaps <- as.data.frame(st_overlaps(osmlanduse,retain_unique=TRUE))
 
-  # vector de las filas que se superponen con otras, que tienen una sola
-  # superposición
+  # vector de las filas que se superponen con otras
 
-   overlap <- lengths(overlaps) == 1
+   overlap <- unique(c(overlaps[,1],overlaps[,2]))
 
   # si hay polígonos que se superponen, continuamos con el procedimiento
 
     if(sum(overlap) > 0){
 
-      osmlanduse.not.overlap <- osmlanduse[!overlap,] # polígonos que no se superponen
+      osmlanduse.not.overlap <- osmlanduse[-overlap,] # polígonos que no se superponen
 
       osmlanduse.overlap <- osmlanduse[overlap,] # polígonos que se superponen
 
-      overlaps.unique <- as.data.frame(st_overlaps(osmlanduse,retain_unique=TRUE)) # recrea el índice de polígonos que se superponn
+      osmlanduse.area <-  st_area(osmlanduse[c(overlaps[,1],overlaps[,2]),])
 
-      for (i in 1:nrow(overlaps.unique)){
+      for (i in 1:nrow(overlaps)){
 
-        x <- as.integer(overlaps.unique[i,][1])
-        y <- as.integer(overlaps.unique[i,][2])
+        x <- i
+        y <- i + nrow(overlaps)
 
         if (osmlanduse.area[x] < osmlanduse.area[y]){
 
-            overlaps.unique[i,][1] <- y
-            overlaps.unique[i,][2] <- x
+            overlaps[i,][1] <- y
+            overlaps[i,][2] <- x
 
         }
       }
 
-      osmlanduse.overlap <- st_difference(osmlanduse.overlap,st_union(osmlanduse[overlaps.unique[,2],]))
+      osmlanduse.overlap.removed <- rbind(st_difference(osmlanduse.overlap,
+                                                        st_union(osmlanduse[overlaps[,2],])),
+                                          osmlanduse[overlaps[,2],])
 
-      osmlanduse <- bind_rows(osmlanduse.overlap,osmlanduse.not.overlap) # ver si reemplazo por una función base
+      osmlanduse <- rbind(osmlanduse.overlap.removed,osmlanduse.not.overlap)
 }
    area <- st_area(osmlanduse) # Removida la superposición, calcula el área
 

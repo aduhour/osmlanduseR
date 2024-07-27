@@ -8,6 +8,7 @@
 
 library(usethis)
 use_data_raw()
-shultz <- read.csv("../data/shultz.csv")
-
-use_data(shultz)
+clc <- read.csv("data-raw/clc.csv")
+clc
+use_data(clc)
+help("use_data")
