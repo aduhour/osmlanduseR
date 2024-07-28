@@ -10,5 +10,5 @@ library(usethis)
 use_data_raw()
 clc <- read.csv("data-raw/clc.csv")
 clc
-use_data(clc)
+use_data(clc, overwrite = TRUE)
 help("use_data")

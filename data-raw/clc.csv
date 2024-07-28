@@ -1,4 +1,4 @@
-Class,CLC_Class,CLC_Class_Name,Corresponding_OSM_tag
+Class,Class_Number,Class_Name,OSM_tag
 1,1.1,Urban fabric,residential
 2,1.2,"Industrial, commercial and transport units",industrial
 2,1.2,"Industrial, commercial and transport units",commercial
