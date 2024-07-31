@@ -15,8 +15,6 @@ get_osmlanduse <- function(area="Partido de Luján"){
   require(osmdata)
   require(tidyverse)
 
-# area <- "Partido de Mercedes"
-
 # Obtiene el recuadro delimitador para solicitar los datos de OSM
 
   if (class(area)[1]=="sf"){
@@ -144,7 +142,6 @@ osmlanduse <- bind_rows(natural,landuse,amenity,aeroway,
 
 recuadro <- st_set_crs(recuadro,st_crs(osmlanduse)) %>%
   st_as_sfc()
-
 
 osmlanduse <- st_intersection(osmlanduse, recuadro)
 
