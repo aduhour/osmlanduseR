@@ -4,10 +4,13 @@
 \alias{get_osmlanduse}
 \title{OSM data for landuse/landcover.}
 \usage{
-get_osmlanduse(area = "Partido de Luján")
+get_osmlanduse(area = "Partido de Luján", crop_to = "area")
 }
 \arguments{
-\item{area}{An sf object or the name of an area.}
+\item{area}{An sf object or the place name of an area}
+
+\item{crop_to}{Character string indicating if the result should be the
+intersection with the polygon ("area", default) or the bounding box ("bbox").}
 }
 \value{
 An sf object with landuse data

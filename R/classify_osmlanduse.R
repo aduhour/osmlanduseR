@@ -15,7 +15,7 @@ classify_osmlanduse <- function(osmlanduse,classes){
 
 # if(alguna prueba para cargar la tabla de clases)
 
-osmlanduse$Class_Name <- classes$Class_Name[match(osmlanduse$value, classes$OSM_tag)]
+osmlanduse$class_name <- classes$class_name[match(osmlanduse$value, classes$osm_tag)]
 
 osmlanduse
 }

@@ -20,10 +20,11 @@ map_osmlanduse <- function(classified, title = "osmlanduseR map"){
   # preparar para un argumento como archivo
     # usos_del_suelo <- st_read("mapas/usos_del_suelo - 2023-10-04 .geojson")
 
-  map <-  tm_shape(classified) + tm_polygons(fill = "Class_Name") +
+  map <-  tm_shape(classified) + tm_polygons(fill = "class_name") +
     #tm_style("cobalt") +
     tm_title(title) +
-    tm_scalebar(width = 10) +  tm_compass(position = c("left","top"))
+    tm_scalebar(width = 10) +  tm_compass(position = c("left","top"))+
+    tm_credits("OpenStreetMap contributors")
 
   map
 }
