@@ -8,15 +8,15 @@
 #' @examples
 #' landuse <- get_osmlanduse()
 #' measures <- measure_osmlanduse(landuse)
+#' @importFrom sf st_transform
+#' @importFrom sf st_overlaps
+#' @importFrom sf st_area
+#' @importFrom sf st_union
+#' @importFrom sf st_difference
 #' @export
 measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
 
-  require(sf)
-  #require(tidyverse)
-  require(units)
-
-
-  #osmlanduse <- st_crs(osmlanduse,4326)
+   #osmlanduse <- st_crs(osmlanduse,4326)
 
   # 5347 es Posgar2007
   # Completar por que se usa

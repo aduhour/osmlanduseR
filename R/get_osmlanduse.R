@@ -6,16 +6,31 @@
 #' intersection with the polygon ("area", default) or the bounding box ("bbox").
 #' @return An sf object with landuse data
 #' @examples
-#' lujan <- get_osmlanduse("Partido de Luján")
+#' lujan <- get_osmlanduse()
+#' @importFrom osmdata getbb
+#' @importFrom osmdata opq
+#' @importFrom osmdata add_osm_feature
+#' @importFrom osmdata osmdata_sf
+#' @importFrom sf st_bbox
+#' @importFrom sf st_make_valid
+#' @importFrom sf st_intersection
+#' @importFrom sf st_set_crs
+#' @importFrom sf st_cast
+#' @importFrom sf st_crs
+#' @importFrom sf st_as_sfc
+#' @importFrom dplyr bind_rows
+#' @importFrom dplyr mutate
+#' @importFrom dplyr rename
+#' @importFrom dplyr select
 #' @export
 #'
-get_osmlanduse <- function(area="Partido de Luján", crop_to = "area"){
+get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
 # @param elements A character vector to select the elements to download.
 #  elements=c("landuse","natural","amenity","aeroway","leisure","protected_area","waterway",
 #             "highway","railway")
-  require(sf)
-  require(osmdata)
-  require(dplyr)
+  #require(sf)
+  #require(osmdata)
+  #require(dplyr)
 
   # Gets bounding box to query data to OSM
 
@@ -82,38 +97,38 @@ railway <- add_osm_feature(area_opq,key = "railway") |>
 
 natural <- bind_rows(st_cast(natural$osm_polygons,"MULTIPOLYGON"),
                      natural$osm_multipolygons) |>
-  select(osm_id, natural) |>
+  select(.data$osm_id, natural) |>
   rename(value=natural) |>
   mutate(key="natural")
 
 
 landuse <- bind_rows(st_cast(landuse$osm_polygons,"MULTIPOLYGON"),
                      landuse$osm_multipolygons) |>
-  select(osm_id,landuse) |>
+  select(.data$osm_id,landuse) |>
   rename(value=landuse) |>
   mutate(key="landuse")
 
 amenity <- bind_rows(st_cast(amenity$osm_polygons,"MULTIPOLYGON"),
                      amenity$osm_multipolygons) |>
-  select(osm_id,amenity) |>
+  select(.data$osm_id,amenity) |>
   rename(value=amenity) |>
   mutate(key="amenity")
 
 aeroway <- bind_rows(st_cast(aeroway$osm_polygons,"MULTIPOLYGON"),
                      aeroway$osm_multipolygons) |>
-  select(osm_id,aeroway) |>
+  select(.data$osm_id,aeroway) |>
   rename(value=aeroway) |>
   mutate(key="aeroway")
 
 leisure <- bind_rows(st_cast(leisure$osm_polygons,"MULTIPOLYGON"),
                      leisure$osm_multipolygons) |>
-  select(osm_id,leisure) |>
+  select(.data$osm_id,leisure) |>
   rename(value=leisure) |>
   mutate(key="leisure")
 
 protected <- bind_rows(st_cast(protected$osm_polygons,"MULTIPOLYGON"),
                        protected$osm_multipolygons) |>
-  select(osm_id,boundary) |>
+  select(.data$osm_id,.data$boundary) |>
   rename(value=boundary) |>
   mutate(key="protected")
 
@@ -122,17 +137,17 @@ protected <- bind_rows(st_cast(protected$osm_polygons,"MULTIPOLYGON"),
 
 waterway <- bind_rows(waterway$osm_lines,
                       waterway$osm_multilines) |>
-  select( osm_id,waterway) |>
+  select(.data$osm_id,waterway) |>
   rename(value=waterway) |>
   mutate(key="waterway")
 
 highway <- highway$osm_lines |>
-  select(osm_id,highway) |>
+  select(.data$osm_id,highway) |>
  rename(value=highway) |>
    mutate(key="highway")
 
 railway <- railway$osm_lines |>
-  select(osm_id,railway) |>
+  select(.data$osm_id,railway) |>
   rename(value=railway) |>
   mutate(key="railway")
 

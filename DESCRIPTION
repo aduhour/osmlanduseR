@@ -10,6 +10,6 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.1
 Depends: 
-    R (>= 2.10), osmdata, sf
+    R (>= 2.10), osmdata, sf, dplyr, tmap
 URL: https://github.com/aduhour/osmlanduseR
 BugReports: https://github.com/aduhour/osmlanduseR/issues

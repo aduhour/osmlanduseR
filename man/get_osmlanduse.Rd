@@ -4,7 +4,7 @@
 \alias{get_osmlanduse}
 \title{OSM data for landuse/landcover.}
 \usage{
-get_osmlanduse(area = "Partido de Luján", crop_to = "area")
+get_osmlanduse(area = "Partido de Lujan", crop_to = "area")
 }
 \arguments{
 \item{area}{An sf object or the place name of an area}
@@ -19,5 +19,5 @@ An sf object with landuse data
 Download data from OpenStreetMap for landuse/landcover analysis.
 }
 \examples{
-lujan <- get_osmlanduse("Partido de Luján")
+lujan <- get_osmlanduse()
 }
