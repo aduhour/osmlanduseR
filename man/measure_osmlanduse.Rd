@@ -7,19 +7,32 @@
 measure_osmlanduse(osmlanduse, crs = 5347, units = "ha")
 }
 \arguments{
-\item{osmlanduse}{Output of get_osmlanduse.}
+\item{osmlanduse}{An sf object, the output of get_osmlanduse.}
 
-\item{crs}{Set the CRS to measure area.}
+\item{crs}{Set the Coordinate reference system to transform the data to measure area.}
 
 \item{units}{The units for the area measures.}
 }
 \value{
-An sf object with area measures
+An sf object with area measures.
 }
 \description{
-Measure area polygons of osm landuse removing overlapping
+Removes overlapping polygons and measure area.
+}
+\details{
+The function removes overlapping prioritizing smaller polygons as suggested by
+Schultz et al., (2017), and then adds a column with area measure.
+
+The default coordinate reference system is POSGAR 2007,
+adopted by the National Geographic Institute for Argentina.
 }
 \examples{
 landuse <- get_osmlanduse()
 measures <- measure_osmlanduse(landuse)
+}
+\references{
+Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A.
+Open land cover from OpenStreetMap and remote sensing.
+International Journal of Applied Earth Observation and Geoinformation, 2017.
+\url{http://dx.doi.org/10.1016/j.jag.2017.07.014}
 }

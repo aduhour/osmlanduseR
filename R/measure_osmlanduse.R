@@ -1,10 +1,22 @@
 #' Measure Landuse
 #'
-#' Measure area polygons of osm landuse removing overlapping
-#' @param osmlanduse Output of get_osmlanduse.
-#' @param crs Set the CRS to measure area.
+#' Removes overlapping polygons and measure area.
+#'
+#' @details
+#' The function removes overlapping prioritizing smaller polygons as suggested by
+#' Schultz et al., (2017), and then adds a column with area measure.
+#'
+#' The default coordinate reference system is POSGAR 2007,
+#' adopted by the National Geographic Institute for Argentina.
+#'
+#' @references Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A.
+#' Open land cover from OpenStreetMap and remote sensing.
+#' International Journal of Applied Earth Observation and Geoinformation, 2017.
+#' \url{http://dx.doi.org/10.1016/j.jag.2017.07.014}
+#' @param osmlanduse An sf object, the output of get_osmlanduse.
+#' @param crs Set the Coordinate reference system to transform the data to measure area.
 #' @param units The units for the area measures.
-#' @return An sf object with area measures
+#' @return An sf object with area measures.
 #' @examples
 #' landuse <- get_osmlanduse()
 #' measures <- measure_osmlanduse(landuse)
@@ -15,8 +27,6 @@
 #' @importFrom sf st_difference
 #' @export
 measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
-
-   #osmlanduse <- st_crs(osmlanduse,4326)
 
   # 5347 es Posgar2007
   # Completar por que se usa

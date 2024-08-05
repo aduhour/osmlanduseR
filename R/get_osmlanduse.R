@@ -1,10 +1,16 @@
-#' OSM data for landuse/landcover.
+#' Get OSM data for landuse/landcover analysis
 #'
-#' Download data from OpenStreetMap for landuse/landcover analysis.
+#' Build an Overpass query to retrieve OSM data for land use and
+#' land cover analysis and mapping.
+#'
 #' @param area An sf object or the place name of an area
 #' @param crop_to Character string indicating if the result should be the
 #' intersection with the polygon ("area", default) or the bounding box ("bbox").
-#' @return An sf object with landuse data
+#' @details
+#' The function retrieves OSM elements tagged with keys: natural, landuse, natural
+#' amenity, aeroway, leisure, protected_area, waterway, highway and railway.
+#'
+#' @return An sf object with landuse data.
 #' @examples
 #' lujan <- get_osmlanduse()
 #' @importFrom osmdata getbb
@@ -28,11 +34,8 @@ get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
 # @param elements A character vector to select the elements to download.
 #  elements=c("landuse","natural","amenity","aeroway","leisure","protected_area","waterway",
 #             "highway","railway")
-  #require(sf)
-  #require(osmdata)
-  #require(dplyr)
 
-  # Gets bounding box to query data to OSM
+# Gets bounding box to query data to OSM
 
   if (class(area)[1]=="sf"){
 
@@ -52,7 +55,7 @@ get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
 area_opq <- opq(bbox,timeout = 50)
 
 
-### Polygons
+### Download polygons
 natural <- add_osm_feature(area_opq,key = "natural") |>
   osmdata_sf()
 
@@ -74,7 +77,7 @@ protected <- add_osm_feature(area_opq,key = "boundary",
   osmdata_sf()
 
 
-### Linear
+### Download linear elements
 
 # waterway
 
@@ -133,8 +136,6 @@ protected <- bind_rows(st_cast(protected$osm_polygons,"MULTIPOLYGON"),
   mutate(key="protected")
 
 
-
-
 waterway <- bind_rows(waterway$osm_lines,
                       waterway$osm_multilines) |>
   select(.data$osm_id,waterway) |>
@@ -156,7 +157,8 @@ osmlanduse <- bind_rows(natural,landuse,amenity,aeroway,
                       waterway,highway,railway) |>
   st_make_valid()
 
-# Unficamos crs y convertimos
+# Set crs and converts bounding box to sf
+
 bbox <- st_set_crs(bbox,st_crs(osmlanduse)) |>
   st_as_sfc()
 

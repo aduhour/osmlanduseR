@@ -4,15 +4,18 @@
 \alias{classify_osmlanduse}
 \title{Classify Landuse}
 \usage{
-classify_osmlanduse(osmlanduse, classes)
+classify_osmlanduse(osmlanduse, osm_tag, class_name)
 }
 \arguments{
 \item{osmlanduse}{Output of get_osmlanduse or measure_osmlanduse.}
 
-\item{classes}{A table with the correspondence between tags and landuse classes. See examples}
+\item{osm_tag}{A vector of OpenStreetMap tag values}
+
+\item{class_name}{A vector of the same length of \code{osm_tag} assigning a class name or number to each
+OpenStreetMap tag and the landuse classes.}
 }
 \value{
-An sf object adding columns representing landuse classes
+An sf object adding a column with the classified landuse classes.
 }
 \description{
 Classify OpenStreetMap tags into predefined landuse classes
