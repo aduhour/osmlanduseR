@@ -26,7 +26,7 @@ Legend harmonization between OSM tags and Corine Land Cover (CLC) classes, level
 \details{
 The data was adapted from Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A.
 Open land cover from OpenStreetMap and remote sensing International.
-Journal of Applied Earth Observationd and Geoinformation, 2017
+Journal of Applied Earth Observation and Geoinformation, 2017
 
 to be used in classification.
 }

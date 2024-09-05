@@ -31,9 +31,6 @@
 #' @export
 #'
 get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
-# @param elements A character vector to select the elements to download.
-#  elements=c("landuse","natural","amenity","aeroway","leisure","protected_area","waterway",
-#             "highway","railway")
 
 # Gets bounding box to query data to OSM
 
