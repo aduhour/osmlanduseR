@@ -2,9 +2,9 @@
 % Please edit documentation in R/map_osmlanduse.R
 \name{map_osmlanduse}
 \alias{map_osmlanduse}
-\title{Map Landuse}
+\title{Map Land use}
 \usage{
-map_osmlanduse(classified, title = "osmlanduseR map")
+map_osmlanduse(classified, title = "osmlanduseR map", basemap = "NULL")
 }
 \arguments{
 \item{classified}{Output of classify_osmlanduse.}
@@ -15,7 +15,7 @@ map_osmlanduse(classified, title = "osmlanduseR map")
 A tmap map
 }
 \description{
-Map landuse classified
+Map land use classified
 }
 \examples{
 landuse <- get_osmlanduse()

@@ -1,6 +1,6 @@
 #' Classify Landuse
 #'
-#' Classify OpenStreetMap tags into predefined landuse classes
+#' Classify OpenStreetMap tags into predefined land use classes
 #'
 #' @param osmlanduse Output of get_osmlanduse or measure_osmlanduse.
 #' @param osm_tag A vector of OpenStreetMap tag values

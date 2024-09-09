@@ -11,6 +11,8 @@ get_osmlanduse(area = "Partido de Lujan", crop_to = "area")
 
 \item{crop_to}{Character string indicating if the result should be the
 intersection with the polygon ("area", default) or the bounding box ("bbox").}
+
+\item{crs}{Set the Coordinate reference system to transform the data.}
 }
 \value{
 An sf object with landuse data.

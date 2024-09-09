@@ -4,6 +4,7 @@
 #' land cover analysis and mapping.
 #'
 #' @param area An sf object or the place name of an area
+#' @param crs Set the Coordinate reference system to transform the data.
 #' @param crop_to Character string indicating if the result should be the
 #' intersection with the polygon ("area", default) or the bounding box ("bbox").
 #' @details
@@ -35,7 +36,7 @@ get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
 # Gets bounding box to query data to OSM
 
   if (class(area)[1]=="sf"){
-
+      area <- st_transform(area,4326)
       bbox <- st_bbox(area)
 
     } else if (is.character(area)){

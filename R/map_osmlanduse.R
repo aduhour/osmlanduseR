@@ -1,6 +1,6 @@
-#' Map Landuse
+#' Map Land use
 #'
-#' Map landuse classified
+#' Map land use classified
 #'
 #' @param classified Output of classify_osmlanduse.
 #' @param title Map title
@@ -19,18 +19,16 @@
 #' @importFrom tmap tm_compass
 #' @importFrom tmap tm_credits
 #' @export
-map_osmlanduse <- function(classified, title = "osmlanduseR map"){
-
-  #require(tmap)
-
-  # preparar para un argumento como archivo
-    # usos_del_suelo <- st_read("mapas/usos_del_suelo - 2023-10-04 .geojson")
+map_osmlanduse <- function(classified, title = "osmlanduseR map", basemap = "NULL"){
 
   map <-  tm_shape(classified) + tm_polygons(fill = "class_name") +
     #tm_style("cobalt") +
     tm_title(title) +
-    tm_scalebar(width = 10) +  tm_compass(position = c("left","top"))+
-    tm_credits("OpenStreetMap contributors")
+    tm_compass(position = c("left","top")) +
+    tm_scalebar(width = 10) +
+    tm_credits(paste("\u00a9 OpenStreetMap contributors")) +
+    tm_layout(legend.frame = FALSE)+ # legend.position = c("left","top")+
+    tm_basemap(server = basemap)
 
   map
 }

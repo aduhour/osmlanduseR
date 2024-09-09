@@ -18,7 +18,7 @@ OpenStreetMap tag and the landuse classes.}
 An sf object adding a column with the classified landuse classes.
 }
 \description{
-Classify OpenStreetMap tags into predefined landuse classes
+Classify OpenStreetMap tags into predefined land use classes
 }
 \examples{
 landuse <- get_osmlanduse()
