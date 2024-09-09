@@ -4,7 +4,7 @@
 \alias{map_osmlanduse}
 \title{Map Land use}
 \usage{
-map_osmlanduse(classified, title = "osmlanduseR map", basemap = "NULL")
+map_osmlanduse(classified, title = "osmlanduseR map")
 }
 \arguments{
 \item{classified}{Output of classify_osmlanduse.}

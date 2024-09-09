@@ -4,7 +4,6 @@
 #' land cover analysis and mapping.
 #'
 #' @param area An sf object or the place name of an area
-#' @param crs Set the Coordinate reference system to transform the data.
 #' @param crop_to Character string indicating if the result should be the
 #' intersection with the polygon ("area", default) or the bounding box ("bbox").
 #' @details
