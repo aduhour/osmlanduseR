@@ -88,8 +88,9 @@ measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
       osmlanduse <- rbind(osmlanduse.overlap.removed,osmlanduse.not.overlap)
     }
 
-
+   # -----------------------------------------------
    # Once removed overlapping, it measures the area.
+   # -----------------------------------------------
 
    area <- st_area(osmlanduse)
 

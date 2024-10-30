@@ -20,15 +20,12 @@
 #' @importFrom tmap tm_credits
 #' @export
 map_osmlanduse <- function(classified, title = "osmlanduseR map"){
-
   map <-  tm_shape(classified) + tm_polygons(fill = "class_name") +
-    #tm_style("cobalt") +
     tm_title(title) +
     tm_compass(position = c("left","top")) +
     tm_scalebar(width = 10) +
     tm_credits(paste("\u00a9 OpenStreetMap contributors")) +
-    tm_layout(legend.frame = FALSE)+ # legend.position = c("left","top")
-
+    tm_layout(legend.frame = FALSE)# legend.position = c("left","top")
   map
 }
 
