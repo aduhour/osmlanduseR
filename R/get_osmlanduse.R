@@ -77,7 +77,7 @@ protected <- add_osm_feature(area_opq,key = "boundary",
 ## Download linear elements
 
 
-### Commented until usage has been implemented.
+### Commented until usage is implemented.
 
 ## waterway
 
@@ -220,7 +220,7 @@ protected <- bind_rows(st_cast(protected$osm_polygons,"MULTIPOLYGON"),
   protected <- NULL
 }
 
-### Commented until usage has been implemented.
+### Commented until usage is implemented.
 #
 # if(nrow(waterway$osm_lines) > 0 | !is.null(waterway$osm_multilines)){
 # waterway <- bind_rows(waterway$osm_lines,

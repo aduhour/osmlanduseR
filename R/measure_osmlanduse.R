@@ -16,6 +16,7 @@
 #' @param osmlanduse An sf object, the output of get_osmlanduse.
 #' @param crs Set the Coordinate reference system to transform the data to measure area.
 #' @param units The units for the area measures.
+#' @param method The method to resolve orverlapping polygons.
 #' @return An sf object with area measures.
 #' @examples
 #' landuse <- get_osmlanduse()
@@ -26,13 +27,18 @@
 #' @importFrom sf st_union
 #' @importFrom sf st_difference
 #' @export
-measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
+measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha",
+                               method = c("smaller","hierarchical")){
 
   osmlanduse <-  st_transform(osmlanduse,crs)
+
+  method <- match.arg(method)
 
   # ---------------------
   # Remove overlapping
   # ---------------------
+
+  # smaller method:
 
   # Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A. 2017
   # Open land cover from OpenStreetMap and remote sensing.
@@ -43,6 +49,18 @@ measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
   # polygons over larger ones (Fig. 3). This is essential for the calculation of
   # correct area statistics or potential comparisons to other data, and gives
   # priority to the detail in the map.
+
+  # hierarchichal method:
+
+  # Fonte, C.; Minghini, M.; Antoniou, V.; See, L.; Patriarca, J.;
+  # Brovelli, M. & Milcinski, G. 2016.
+  # An Automated methodology for converting OSM data into a land use/cover map.
+  # 6th International Conference on Cartography & GIS.
+
+  # pp 5: In the present work these inconsistencies were removed by considering a
+  # hierarchy of feature importance, which is shown in Table 2
+  # for level 2 classes; in the case of overlap, priority is given to the classes
+  # occupying the highest level in the list
 
   # Pairs of overlapping polygons:
 
@@ -68,11 +86,19 @@ measure_osmlanduse <- function(osmlanduse, crs=5347, units="ha"){
 
       osmlanduse.overlap$area <-  st_area(osmlanduse.overlap)
 
+      # Select method to remove overlapping.
+
+      if (method == "smaller"){
 
       # Reorder the overlapping polygons by area
 
-      osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$area),]
+        osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$area),]
 
+      } else if (method == "hierarchical"){
+
+        stop("The method has not been implemented")
+
+      }
 
       # When st_difference is called with a single argument,
       # overlapping areas are erased from geometries that are indexed
