@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_osmlanduse.R
 \name{get_osmlanduse}
 \alias{get_osmlanduse}
-\title{Get OSM data for landuse/landcover analysis}
+\title{Get OSM data for land use / land cover analysis}
 \usage{
 get_osmlanduse(area = "Partido de Lujan", crop_to = "area")
 }
@@ -13,7 +13,7 @@ get_osmlanduse(area = "Partido de Lujan", crop_to = "area")
 intersection with the polygon ("area", default) or the bounding box ("bbox").}
 }
 \value{
-An sf object with landuse data.
+An sf object with land use data.
 }
 \description{
 Build an Overpass query to retrieve OSM data for land use and
@@ -21,7 +21,7 @@ land cover analysis and mapping.
 }
 \details{
 The function retrieves OSM elements tagged with keys: natural, landuse, natural
-amenity, aeroway, leisure, protected_area, waterway, highway and railway.
+amenity, aeroway, leisure and protected_area.
 }
 \examples{
 lujan <- get_osmlanduse()

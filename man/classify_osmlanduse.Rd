@@ -2,27 +2,62 @@
 % Please edit documentation in R/classify_osmlanduse.R
 \name{classify_osmlanduse}
 \alias{classify_osmlanduse}
-\title{Classify Landuse}
+\title{Classify land use}
 \usage{
-classify_osmlanduse(osmlanduse, osm_tag, class_name)
+classify_osmlanduse(
+  osmlanduse,
+  crs = 5347,
+  units = "ha",
+  osm_tag,
+  class_name,
+  priority = NULL,
+  method = "smaller"
+)
 }
 \arguments{
-\item{osmlanduse}{Output of get_osmlanduse or measure_osmlanduse.}
+\item{osmlanduse}{An sf object, the output of get_osmlanduse.}
+
+\item{crs}{Set the Coordinate reference system to transform the data to measure area.}
+
+\item{units}{The units for the area measures.}
 
 \item{osm_tag}{A vector of OpenStreetMap tag values}
 
-\item{class_name}{A vector of the same length of \code{osm_tag} assigning a class name or number to each
-OpenStreetMap tag and the landuse classes.}
+\item{class_name}{A vector of the same length of \code{osm_tag} assigning a class name or number to each}
+
+\item{priority}{A vector of integers from 1 to the number of land use classes.}
+
+\item{method}{The method to resolve orverlapping polygons.
+OpenStreetMap tag and the land use classes.}
 }
 \value{
-An sf object adding a column with the classified landuse classes.
+An sf object with the classified
+land use classes and area measures added.
 }
 \description{
-Classify OpenStreetMap tags into predefined land use classes
+Classify OpenStreetMap tags into predefined land use classes,
+removes overlapping polygons and measure area.
+}
+\details{
+The function classifies every land use polygon to the selected clases,
+removes overlapping prioritizing smaller polygons as suggested by
+Schultz et al., (2017),
+or establishing land use priorities as suggested by Fonte et al., (2016),
+then adds a column with area measure.
+
+The default coordinate reference system is POSGAR 2007,
+adopted by the National Geographic Institute for Argentina.
 }
 \examples{
 landuse <- get_osmlanduse()
-measures <- measure_osmlanduse(landuse)
 data(clc)
-classified <- classify_osmlanduse(measures,clc)
+classified <- classify_osmlanduse(landuse,osm_tag = clc$osm_tag,
+class_name = clc$class_name)
+}
+\references{
+Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A. 2017.
+Open land cover from OpenStreetMap and remote sensing.
+International Journal of Applied Earth Observation and Geoinformation.
+#' \url{http://dx.doi.org/10.1016/j.jag.2017.07.014}
+Fonte, C.; Minghini, M.; Antoniou, V.; See, L.; Patriarca, J.;
 }

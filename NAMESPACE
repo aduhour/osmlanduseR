@@ -3,7 +3,6 @@
 export(classify_osmlanduse)
 export(get_osmlanduse)
 export(map_osmlanduse)
-export(measure_osmlanduse)
 importFrom(dplyr,bind_rows)
 importFrom(dplyr,mutate)
 importFrom(dplyr,rename)
