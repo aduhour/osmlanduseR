@@ -120,7 +120,13 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", osm_tag,
           if (is.null(priority)){
             stop("A vector of priorities must be provided as argument.")
           }
-        stop("The method has not been implemented")
+          #  stop("The method has not been implemented")
+
+          osmlanduse$priority <- priority[match(osmlanduse$value, osm_tag)]
+
+          #Ordenar pirmero por prioridad y después por area
+
+          osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$priority,osmlanduse$area),]
       })
 
       # When st_difference is called with a single argument,

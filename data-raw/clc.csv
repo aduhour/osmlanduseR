@@ -1,62 +1,62 @@
-class,class_number,class_name,osm_tag
-1,1.1,Urban fabric,residential
-2,1.2,"Industrial, commercial and transport units",industrial
-2,1.2,"Industrial, commercial and transport units",commercial
-2,1.2,"Industrial, commercial and transport units",retail
-2,1.2,"Industrial, commercial and transport units",harbour
-2,1.2,"Industrial, commercial and transport units",port
-2,1.2,"Industrial, commercial and transport units",railway
-2,1.2,"Industrial, commercial and transport units",lock
-2,1.2,"Industrial, commercial and transport units",marina
-3,1.3,"Mine, dump and construction sites",quarry
-3,1.3,"Mine, dump and construction sites",construction
-3,1.3,"Mine, dump and construction sites",landfill
-3,1.3,"Mine, dump and construction sites",brownfield
-4,1.4,Artificial non-agricultural vegetated areas,stadium
-4,1.4,Artificial non-agricultural vegetated areas,recreation_ground
-4,1.4,Artificial non-agricultural vegetated areas,golf_course
-4,1.4,Artificial non-agricultural vegetated areas,sports_center
-4,1.4,Artificial non-agricultural vegetated areas,common
-4,1.4,Artificial non-agricultural vegetated areas,allotments
-4,1.4,Artificial non-agricultural vegetated areas,playground
-4,1.4,Artificial non-agricultural vegetated areas,pitch
-4,1.4,Artificial non-agricultural vegetated areas,village_green
-4,1.4,Artificial non-agricultural vegetated areas,cemetery
-4,1.4,Artificial non-agricultural vegetated areas,park
-4,1.4,Artificial non-agricultural vegetated areas,zoo
-4,1.4,Artificial non-agricultural vegetated areas,track
-4,1.4,Artificial non-agricultural vegetated areas,garden
-5,2.1,Arable land,greenhouse_horticulture
-5,2.1,Arable land,greenhouse
-5,2.1,Arable land,farmland
-5,2.1,Arable land,farm
-5,2.1,Arable land,farmyard
-6,2.2,Permanent crops,vineyard
-6,2.2,Permanent crops,orchard
-7,2.3,Pastures,meadow
-8,3.1,Forests,forest
-8,3.1,Forests,wood
-9,3.2,Shrub and/or herbaceous vegetation associations,grass
-9,3.2,Shrub and/or herbaceous vegetation associations,greenfield
-9,3.2,Shrub and/or herbaceous vegetation associations,scrub
-9,3.2,Shrub and/or herbaceous vegetation associations,heath
-9,3.2,Shrub and/or herbaceous vegetation associations,grassland
-10,3.3,Open spaces with little or no vegetation,fell
-10,3.3,Open spaces with little or no vegetation,sand
-10,3.3,Open spaces with little or no vegetation,scree
-10,3.3,Open spaces with little or no vegetation,beach
-10,3.3,Open spaces with little or no vegetation,mud
-10,3.3,Open spaces with little or no vegetation,glacier
-10,3.3,Open spaces with little or no vegetation,rock
-10,3.3,Open spaces with little or no vegetation,cliff
-11,4.1,Inland wetlands,march
-11,4.1,Inland wetlands,wetland
-12,4.2,Coastal wetlands,salt_pond
-12,4.2,Coastal wetlands,tidal
-13,5.0,Water bodies,water
-13,5.0,Water bodies,riverbank
-13,5.0,Water bodies,reservoir
-13,5.0,Water bodies,basin
-13,5.0,Water bodies,dock
-13,5.0,Water bodies,canal
-13,5.0,Water bodies,pond
+class,class_number,class_priority,class_name,osm_tag
+1,1.1,5,Urban fabric,residential
+2,1.2,1,"Industrial, commercial and transport units",industrial
+2,1.2,1,"Industrial, commercial and transport units",commercial
+2,1.2,1,"Industrial, commercial and transport units",retail
+2,1.2,1,"Industrial, commercial and transport units",harbour
+2,1.2,1,"Industrial, commercial and transport units",port
+2,1.2,1,"Industrial, commercial and transport units",railway
+2,1.2,1,"Industrial, commercial and transport units",lock
+2,1.2,1,"Industrial, commercial and transport units",marina
+3,1.3,4,"Mine, dump and construction sites",quarry
+3,1.3,4,"Mine, dump and construction sites",construction
+3,1.3,4,"Mine, dump and construction sites",landfill
+3,1.3,4,"Mine, dump and construction sites",brownfield
+4,1.4,3,Artificial non-agricultural vegetated areas,stadium
+4,1.4,3,Artificial non-agricultural vegetated areas,recreation_ground
+4,1.4,3,Artificial non-agricultural vegetated areas,golf_course
+4,1.4,3,Artificial non-agricultural vegetated areas,sports_center
+4,1.4,3,Artificial non-agricultural vegetated areas,common
+4,1.4,3,Artificial non-agricultural vegetated areas,allotments
+4,1.4,3,Artificial non-agricultural vegetated areas,playground
+4,1.4,3,Artificial non-agricultural vegetated areas,pitch
+4,1.4,3,Artificial non-agricultural vegetated areas,village_green
+4,1.4,3,Artificial non-agricultural vegetated areas,cemetery
+4,1.4,3,Artificial non-agricultural vegetated areas,park
+4,1.4,3,Artificial non-agricultural vegetated areas,zoo
+4,1.4,3,Artificial non-agricultural vegetated areas,track
+4,1.4,3,Artificial non-agricultural vegetated areas,garden
+5,2.1,6,Arable land,greenhouse_horticulture
+5,2.1,6,Arable land,greenhouse
+5,2.1,6,Arable land,farmland
+5,2.1,6,Arable land,farm
+5,2.1,6,Arable land,farmyard
+6,2.2,6,Permanent crops,vineyard
+6,2.2,6,Permanent crops,orchard
+7,2.3,6,Pastures,meadow
+8,3.1,7,Forests,forest
+8,3.1,7,Forests,wood
+9,3.2,6,Shrub and/or herbaceous vegetation associations,grass
+9,3.2,6,Shrub and/or herbaceous vegetation associations,greenfield
+9,3.2,6,Shrub and/or herbaceous vegetation associations,scrub
+9,3.2,6,Shrub and/or herbaceous vegetation associations,heath
+9,3.2,6,Shrub and/or herbaceous vegetation associations,grassland
+10,3.3,6,Open spaces with little or no vegetation,fell
+10,3.3,6,Open spaces with little or no vegetation,sand
+10,3.3,6,Open spaces with little or no vegetation,scree
+10,3.3,6,Open spaces with little or no vegetation,beach
+10,3.3,6,Open spaces with little or no vegetation,mud
+10,3.3,6,Open spaces with little or no vegetation,glacier
+10,3.3,6,Open spaces with little or no vegetation,rock
+10,3.3,6,Open spaces with little or no vegetation,cliff
+11,4.1,2,Inland wetlands,march
+11,4.1,2,Inland wetlands,wetland
+12,4.2,2,Coastal wetlands,salt_pond
+12,4.2,2,Coastal wetlands,tidal
+13,5.0,2,Water bodies,water
+13,5.0,2,Water bodies,riverbank
+13,5.0,2,Water bodies,reservoir
+13,5.0,2,Water bodies,basin
+13,5.0,2,Water bodies,dock
+13,5.0,2,Water bodies,canal
+13,5.0,2,Water bodies,pond
