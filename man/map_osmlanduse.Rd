@@ -19,9 +19,8 @@ Map land use classified
 }
 \examples{
 landuse <- get_osmlanduse()
-measures <- measure_osmlanduse(landuse)
 data(clc)
-classified <- classify_osmlanduse(measures,clc)
+classified <- classify_osmlanduse(measures,clc$class_name, clc$osm_tag)
 map <- map_osmlanduse(classified)
 map
 }
