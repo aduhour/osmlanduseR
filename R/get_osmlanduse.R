@@ -28,6 +28,7 @@
 #' @importFrom dplyr mutate
 #' @importFrom dplyr rename
 #' @importFrom dplyr select
+#' @importFrom rlang .data
 #' @export
 #'
 get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
@@ -246,8 +247,8 @@ protected <- bind_rows(st_cast(protected$osm_polygons,"MULTIPOLYGON"),
 # }
 
 osmlanduse <- bind_rows(natural,landuse,amenity,aeroway,
-                        leisure,protected) |> # waterway,highway,railway) |>
-  st_make_valid()
+                        leisure,protected) # waterway,highway,railway) |>
+
 
 # Set crs and converts bounding box to sf
 
@@ -260,6 +261,8 @@ if (crop_to == "area"){
   osmlanduse <- st_intersection(osmlanduse, bbox)
 
 }
+
+osmlanduse <-  st_make_valid(osmlanduse)
 
 osmlanduse
 

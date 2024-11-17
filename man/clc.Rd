@@ -5,29 +5,35 @@
 \alias{clc}
 \title{Corine Land Cover (CLC) classes and OSM tags}
 \format{
-## `clc`
-A data frame with 61 rows and 4 columns:
+A data frame with 61 rows and 5 columns:
 \describe{
   \item{class}{Number.}
   \item{class_number}{CLC Class number.}
+  \item{class_priority}{Priority to remove overlapping.}
   \item{class_name}{CLC Class Name.}
-  \item{osm_tag}{Openstreet map tag value associated with each class.}
+  \item{osm_tag}{OpenStreetMap tag value associated with each class.}
 }
 }
 \source{
-<http://dx.doi.org/10.1016/j.jag.2017.07.014>
+Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A. 2017.
+Open land cover from OpenStreetMap and remote sensing International.
+Journal of Applied Earth Observation and Geoinformation.
+http://dx.doi.org/10.1016/j.jag.2017.07.014
+
+Fonte, C.; Minghini, M.; Antoniou, V.; See, L.; Patriarca, J.;
+Brovelli, M. & Milcinski, G. 2016.
+An Automated methodology for converting OSM data into a land use/cover map.
+6th International Conference on Cartography & GIS.
 }
 \usage{
 clc
 }
 \description{
-Legend harmonization between OSM tags and Corine Land Cover (CLC) classes, level two legend.
+Legend harmonization between OSM tags and Corine Land Cover (CLC) classes.
+Level two legend.
 }
 \details{
-The data was adapted from Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A.
-Open land cover from OpenStreetMap and remote sensing International.
-Journal of Applied Earth Observation and Geoinformation, 2017
-
+The data was adapted from Schultz et al. (2017) and Fonte et al. (2016)
 to be used in classification.
 }
 \keyword{datasets}
