@@ -42,15 +42,19 @@
 #' @importFrom sf st_union
 #' @importFrom sf st_difference
 #' @export
-classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", osm_tag,
-                               class_name,
-                               priority = NULL, method = "smaller"){
+classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", class_name,
+                                osm_tag,
+                                priority = NULL, method = "smaller"){
 
   osmlanduse <-  st_transform(osmlanduse,crs)
 
   methods <- c("smaller", "hierarchical")
 
   method <- match.arg(method, methods)
+
+  if (method == "hierarchical" & is.null(priority)){
+    stop("A vector of priorities must be provided as argument.")
+  }
 
   ## Classify land use
 
@@ -116,17 +120,16 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", osm_tag,
 
         osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$area),]
 
-      }, hierarchical = {
-          if (is.null(priority)){
-            stop("A vector of priorities must be provided as argument.")
-          }
+       }, hierarchical = {
+
           #  stop("The method has not been implemented")
 
-          osmlanduse$priority <- priority[match(osmlanduse$value, osm_tag)]
+          osmlanduse.overlap$priority <- priority[match(osmlanduse.overlap$value, osm_tag)]
 
           #Ordenar pirmero por prioridad y después por area
 
-          osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$priority,osmlanduse$area),]
+          osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$priority,osmlanduse.overlap$area),]
+
       })
 
       # When st_difference is called with a single argument,
@@ -138,11 +141,14 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", osm_tag,
 
       osmlanduse.overlap <- st_difference(osmlanduse.overlap)
 
-      osmlanduse.overlap.removed <- osmlanduse.overlap[,!(names(osmlanduse.overlap) %in% c("area"))]
+      osmlanduse.overlap.removed <- subset(osmlanduse.overlap,select = names(osmlanduse.not.overlap))
 
       osmlanduse <- rbind(osmlanduse.overlap.removed,osmlanduse.not.overlap)
+
     } else {
+
       message("There is no overlapping polygons")
+
     }
 
    # -----------------------------------------------

@@ -27,7 +27,6 @@ class,class_number,class_priority,class_name,osm_tag
 4,1.4,3,Artificial non-agricultural vegetated areas,track
 4,1.4,3,Artificial non-agricultural vegetated areas,garden
 5,2.1,6,Arable land,greenhouse_horticulture
-5,2.1,6,Arable land,greenhouse
 5,2.1,6,Arable land,farmland
 5,2.1,6,Arable land,farm
 5,2.1,6,Arable land,farmyard

@@ -1,50 +1,10 @@
 class,class_number,class_priority,class_name,osm_tag
-4,4,1,Superficies artificiales y áreas asociadas,common
-4,4,1,Superficies artificiales y áreas asociadas,garden
-4,4,1,Superficies artificiales y áreas asociadas,park
-4,4,1,Superficies artificiales y áreas asociadas,allotments
-4,4,1,Superficies artificiales y áreas asociadas,brownfield
-4,4,1,Superficies artificiales y áreas asociadas,cemetery
-4,4,1,Superficies artificiales y áreas asociadas,commercial
-4,4,1,Superficies artificiales y áreas asociadas,construction
-4,4,1,Superficies artificiales y áreas asociadas,golf_course
-4,4,1,Superficies artificiales y áreas asociadas,harbour
-4,4,1,Superficies artificiales y áreas asociadas,industrial
-4,4,1,Superficies artificiales y áreas asociadas,landfill
-4,4,1,Superficies artificiales y áreas asociadas,lock
-4,4,1,Superficies artificiales y áreas asociadas,marina
-4,4,1,Superficies artificiales y áreas asociadas,pitch
-4,4,1,Superficies artificiales y áreas asociadas,playground
-4,4,1,Superficies artificiales y áreas asociadas,port
-4,4,1,Superficies artificiales y áreas asociadas,quarry
-4,4,1,Superficies artificiales y áreas asociadas,recreation_ground
-4,4,1,Superficies artificiales y áreas asociadas,railway
-4,4,1,Superficies artificiales y áreas asociadas,residential
-4,4,1,Superficies artificiales y áreas asociadas,retail
-4,4,1,Superficies artificiales y áreas asociadas,shrubbery
-4,4,1,Superficies artificiales y áreas asociadas,sports_center
-4,4,1,Superficies artificiales y áreas asociadas,stadium
-4,4,1,Superficies artificiales y áreas asociadas,village_green
-4,4,1,Superficies artificiales y áreas asociadas,track
-4,4,1,Superficies artificiales y áreas asociadas,zoo
-6,6,2,"Cuerpos de agua, nueve o hielo artificial",basin
-6,6,2,"Cuerpos de agua, nueve o hielo artificial",salt_pond
-6,6,2,"Cuerpos de agua, nueve o hielo artificial",dock
-6,6,2,"Cuerpos de agua, nueve o hielo artificial",canal
-6,6,2,"Cuerpos de agua, nueve o hielo artificial",reservoir
-7,7,3,"Cuerpos de agua, nueve o hielo natural",glacier
-7,7,3,"Cuerpos de agua, nueve o hielo natural",reef
-7,7,3,"Cuerpos de agua, nueve o hielo natural",river
-7,7,3,"Cuerpos de agua, nueve o hielo natural",riverbank
-7,7,3,"Cuerpos de agua, nueve o hielo natural",stream
-7,7,3,"Cuerpos de agua, nueve o hielo natural",water
-3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,march
-3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,shoal
-3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,tidal
-3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,wetland
+1,1,5,Áreas terrestres cultivadas y/o manejadas,garden
+1,1,5,Áreas terrestres cultivadas y/o manejadas,park
+1,1,5,Áreas terrestres cultivadas y/o manejadas,golf_course
+1,1,5,Áreas terrestres cultivadas y/o manejadas,shrubbery
 1,1,5,Áreas terrestres cultivadas y/o manejadas,farmland
 1,1,5,Áreas terrestres cultivadas y/o manejadas,forest
-1,1,5,Áreas terrestres cultivadas y/o manejadas,greenhouse
 1,1,5,Áreas terrestres cultivadas y/o manejadas,greenhouse_horticulture
 1,1,5,Áreas terrestres cultivadas y/o manejadas,meadow
 1,1,5,Áreas terrestres cultivadas y/o manejadas,orchard
@@ -58,6 +18,34 @@ class,class_number,class_priority,class_name,osm_tag
 2,2,6,Áreas naturales y seminaturales de vegetación predominantemente terrestre,scrub
 2,2,6,Áreas naturales y seminaturales de vegetación predominantemente terrestre,tundra
 2,2,6,Áreas naturales y seminaturales de vegetación predominantemente terrestre,wood
+3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,march
+3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,shoal
+3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,tidal
+3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,wetland
+4,4,1,Superficies artificiales y áreas asociadas,common
+4,4,1,Superficies artificiales y áreas asociadas,allotments
+4,4,1,Superficies artificiales y áreas asociadas,brownfield
+4,4,1,Superficies artificiales y áreas asociadas,cemetery
+4,4,1,Superficies artificiales y áreas asociadas,commercial
+4,4,1,Superficies artificiales y áreas asociadas,construction
+4,4,1,Superficies artificiales y áreas asociadas,harbour
+4,4,1,Superficies artificiales y áreas asociadas,industrial
+4,4,1,Superficies artificiales y áreas asociadas,landfill
+4,4,1,Superficies artificiales y áreas asociadas,lock
+4,4,1,Superficies artificiales y áreas asociadas,marina
+4,4,1,Superficies artificiales y áreas asociadas,pitch
+4,4,1,Superficies artificiales y áreas asociadas,playground
+4,4,1,Superficies artificiales y áreas asociadas,port
+4,4,1,Superficies artificiales y áreas asociadas,quarry
+4,4,1,Superficies artificiales y áreas asociadas,recreation_ground
+4,4,1,Superficies artificiales y áreas asociadas,railway
+4,4,1,Superficies artificiales y áreas asociadas,residential
+4,4,1,Superficies artificiales y áreas asociadas,retail
+4,4,1,Superficies artificiales y áreas asociadas,sports_center
+4,4,1,Superficies artificiales y áreas asociadas,stadium
+4,4,1,Superficies artificiales y áreas asociadas,village_green
+4,4,1,Superficies artificiales y áreas asociadas,track
+4,4,1,Superficies artificiales y áreas asociadas,zoo
 5,5,7,Áreas naturales desnudas,bare_rock
 5,5,7,Áreas naturales desnudas,beach
 5,5,7,Áreas naturales desnudas,desert
@@ -65,3 +53,14 @@ class,class_number,class_priority,class_name,osm_tag
 5,5,7,Áreas naturales desnudas,sand
 5,5,7,Áreas naturales desnudas,scree
 5,5,7,Áreas naturales desnudas,shingle
+6,6,2,"Cuerpos de agua, nueve o hielo artificial",basin
+6,6,2,"Cuerpos de agua, nueve o hielo artificial",salt_pond
+6,6,2,"Cuerpos de agua, nueve o hielo artificial",dock
+6,6,2,"Cuerpos de agua, nueve o hielo artificial",canal
+6,6,2,"Cuerpos de agua, nueve o hielo artificial",reservoir
+7,7,3,"Cuerpos de agua, nueve o hielo natural",glacier
+7,7,3,"Cuerpos de agua, nueve o hielo natural",reef
+7,7,3,"Cuerpos de agua, nueve o hielo natural",river
+7,7,3,"Cuerpos de agua, nueve o hielo natural",riverbank
+7,7,3,"Cuerpos de agua, nueve o hielo natural",stream
+7,7,3,"Cuerpos de agua, nueve o hielo natural",water

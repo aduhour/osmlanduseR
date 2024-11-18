@@ -21,7 +21,7 @@ land cover analysis and mapping.
 }
 \details{
 The function retrieves OSM elements tagged with keys: natural, landuse, natural
-amenity, aeroway, leisure and protected_area.
+amenity, aeroway and leisure.
 }
 \examples{
 lujan <- get_osmlanduse()

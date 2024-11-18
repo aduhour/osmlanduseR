@@ -5,7 +5,7 @@
 \alias{clc}
 \title{Corine Land Cover (CLC) classes and OSM tags}
 \format{
-A data frame with 61 rows and 5 columns:
+A data frame with 60 rows and 5 columns:
 \describe{
   \item{class}{Number.}
   \item{class_number}{CLC Class number.}

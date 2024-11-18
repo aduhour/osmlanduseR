@@ -5,7 +5,7 @@
 \alias{intafao}
 \title{INTA FAO Land Cover Classes}
 \format{
-A data frame with 66 rows and 5 columns:
+A data frame with 65rows and 5 columns:
 \describe{
   \item{class}{Number.}
   \item{class_number}{LCCS Class number.}

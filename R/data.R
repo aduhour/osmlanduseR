@@ -7,7 +7,7 @@
 #' to be used in classification.
 #'
 #' @format
-#' A data frame with 61 rows and 5 columns:
+#' A data frame with 60 rows and 5 columns:
 #' \describe{
 #'   \item{class}{Number.}
 #'   \item{class_number}{CLC Class number.}
@@ -38,7 +38,7 @@
 #' to be used in classification.
 #'
 #' @format
-#' A data frame with 66 rows and 5 columns:
+#' A data frame with 65rows and 5 columns:
 #' \describe{
 #'   \item{class}{Number.}
 #'   \item{class_number}{LCCS Class number.}

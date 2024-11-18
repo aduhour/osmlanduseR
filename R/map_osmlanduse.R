@@ -19,7 +19,8 @@
 #' @importFrom tmap tm_layout
 #' @export
 map_osmlanduse <- function(classified, title = "osmlanduseR map"){
-  map <-  tm_shape(classified) + tm_polygons(col = "class_name") +
+  map <-  tm_shape(classified) +
+    tm_polygons(col = "class_name",palette="plasma") +
     tmap_options(check.and.fix = TRUE) +
     tm_compass(position = c("left","top")) +
     tm_scale_bar() +
