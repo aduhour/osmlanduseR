@@ -8,8 +8,8 @@ classify_osmlanduse(
   osmlanduse,
   crs = 5347,
   units = "ha",
-  osm_tag,
   class_name,
+  osm_tag,
   priority = NULL,
   method = "smaller"
 )
@@ -21,9 +21,9 @@ classify_osmlanduse(
 
 \item{units}{The units for the area measures.}
 
-\item{osm_tag}{A vector of OpenStreetMap tag values}
-
 \item{class_name}{A vector of the same length of \code{osm_tag} assigning a class name or number to each}
+
+\item{osm_tag}{A vector of OpenStreetMap tag values}
 
 \item{priority}{A vector of integers from 1 to the number of land use classes.}
 
@@ -49,7 +49,8 @@ The default coordinate reference system is POSGAR 2007,
 adopted by the National Geographic Institute for Argentina.
 }
 \examples{
-landuse <- get_osmlanduse()
+area <-  "Lezica y Torrezuri, Partido de Luján"
+landuse <- get_osmlanduse(area, crop_to = "bbox")
 data(clc)
 classified <- classify_osmlanduse(landuse,osm_tag = clc$osm_tag,
 class_name = clc$class_name)

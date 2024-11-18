@@ -24,5 +24,6 @@ The function retrieves OSM elements tagged with keys: natural, landuse, natural
 amenity, aeroway and leisure.
 }
 \examples{
-lujan <- get_osmlanduse()
+area <-  "Lezica y Torrezuri, Partido de Luján"
+landuse <- get_osmlanduse(area, crop_to = "bbox")
 }

@@ -1,6 +1,6 @@
 Package: osmlanduseR
 Type: Package
-Title: OpenStreetMap Landuse Data Analysis
+Title: OpenStreetMap Land Use Data Analysis
 Version: 0.1.0
 Author: Andrés Esteban Duhour [aut, cre]
 Maintainer: Andrés Esteban Duhour <aduhour@unlu.edu.ar>
@@ -14,4 +14,4 @@ Depends:
 URL: https://github.com/aduhour/osmlanduseR
 BugReports: https://github.com/aduhour/osmlanduseR/issues
 Imports: 
-    rlang
+    cli

@@ -19,5 +19,10 @@ use_data(clc, overwrite = TRUE)
 help("use_data")
 
 intafao <- read.csv("data-raw/intafao.csv")
-intafao
+#intafao$class_name <- iconv(intafao$class_name, from = "UTF-8", to = "ASCII") # reemplaza la línea completa
+#intafao$class_name <- stringi::stri_enc_toascii(intafao$class_name)
+
+# stringi::stri_escape_unicode("á") \u00e1"
+# stringi::stri_escape_unicode("ó") # \u00f3"
 use_data(intafao, overwrite = TRUE)
+document()

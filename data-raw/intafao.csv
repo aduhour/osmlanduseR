@@ -18,16 +18,17 @@ class,class_number,class_priority,class_name,osm_tag
 2,2,6,Áreas naturales y seminaturales de vegetación predominantemente terrestre,scrub
 2,2,6,Áreas naturales y seminaturales de vegetación predominantemente terrestre,tundra
 2,2,6,Áreas naturales y seminaturales de vegetación predominantemente terrestre,wood
-3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,march
-3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,shoal
-3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,tidal
-3,3,4,Áreas naturales y seminaturales de vegetación de áreas regularmente inundadas/anegadas o acuáticas,wetland
+3,3,4,Vegetación natural o semi-natural de áreas regularmente inundadas/anegadas o acuáticas,march
+3,3,4,Vegetación natural o semi-natural de áreas regularmente inundadas/anegadas o acuáticas,shoal
+3,3,4,Vegetación natural o semi-natural de áreas regularmente inundadas/anegadas o acuáticas,tidal
+3,3,4,Vegetación natural o semi-natural de áreas regularmente inundadas/anegadas o acuáticas,wetland
 4,4,1,Superficies artificiales y áreas asociadas,common
 4,4,1,Superficies artificiales y áreas asociadas,allotments
 4,4,1,Superficies artificiales y áreas asociadas,brownfield
 4,4,1,Superficies artificiales y áreas asociadas,cemetery
 4,4,1,Superficies artificiales y áreas asociadas,commercial
 4,4,1,Superficies artificiales y áreas asociadas,construction
+4,4,1,Superficies artificiales y áreas asociadas,farmyard
 4,4,1,Superficies artificiales y áreas asociadas,harbour
 4,4,1,Superficies artificiales y áreas asociadas,industrial
 4,4,1,Superficies artificiales y áreas asociadas,landfill
@@ -41,10 +42,12 @@ class,class_number,class_priority,class_name,osm_tag
 4,4,1,Superficies artificiales y áreas asociadas,railway
 4,4,1,Superficies artificiales y áreas asociadas,residential
 4,4,1,Superficies artificiales y áreas asociadas,retail
-4,4,1,Superficies artificiales y áreas asociadas,sports_center
+4,4,1,Superficies artificiales y áreas asociadas,sports_centre
 4,4,1,Superficies artificiales y áreas asociadas,stadium
 4,4,1,Superficies artificiales y áreas asociadas,village_green
 4,4,1,Superficies artificiales y áreas asociadas,track
+4,4,1,Superficies artificiales y áreas asociadas,university
+4,4,1,Superficies artificiales y áreas asociadas,education
 4,4,1,Superficies artificiales y áreas asociadas,zoo
 5,5,7,Áreas naturales desnudas,bare_rock
 5,5,7,Áreas naturales desnudas,beach

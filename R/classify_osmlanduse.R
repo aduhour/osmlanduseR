@@ -32,7 +32,8 @@
 #' @return An sf object with the classified
 #' land use classes and area measures added.
 #' @examples
-#' landuse <- get_osmlanduse()
+#' area <-  "Lezica y Torrezuri, Partido de Luján"
+#' landuse <- get_osmlanduse(area, crop_to = "bbox")
 #' data(clc)
 #' classified <- classify_osmlanduse(landuse,osm_tag = clc$osm_tag,
 #' class_name = clc$class_name)
@@ -122,11 +123,9 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", class_name,
 
        }, hierarchical = {
 
-          #  stop("The method has not been implemented")
-
           osmlanduse.overlap$priority <- priority[match(osmlanduse.overlap$value, osm_tag)]
 
-          #Ordenar pirmero por prioridad y después por area
+          #Order furst by priority and then by area
 
           osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$priority,osmlanduse.overlap$area),]
 
@@ -147,7 +146,7 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", class_name,
 
     } else {
 
-      message("There is no overlapping polygons")
+      cli::cli_inform("There is no overlapping polygons")
 
     }
 
