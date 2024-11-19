@@ -1,13 +1,14 @@
-#' Classify land use
+#' Classify Land Use
 #'
 #' Classify OpenStreetMap tags into predefined land use classes,
 #' removes overlapping polygons and measure area.
 #'
 #' @details
-#' The function classifies every land use polygon to the selected clases,
+#' The function classifies every land use polygon to the selected classes,
 #' removes overlapping prioritizing smaller polygons as suggested by
-#' Schultz et al., (2017),
-#' or establishing land use priorities as suggested by Fonte et al., (2016),
+#' Schultz et al., (2017) (method \code{smaller}),
+#' or establishing land use priorities as suggested by Fonte et al., (2016)
+#' (method \code{hierarchichal}),
 #' then adds a column with area measure.
 #'
 #' The default coordinate reference system is POSGAR 2007,
@@ -22,15 +23,15 @@
 #  An Automated methodology for converting OSM data into a land use/cover map.
 #  6th International Conference on Cartography & GIS.
 #' @param osmlanduse An sf object, the output of get_osmlanduse.
-#' @param crs Set the Coordinate reference system to transform the data to measure area.
+#' @param crs Set the Coordinate Reference System to transform the data to measure area.
 #' @param units The units for the area measures.
 #' @param osm_tag A vector of OpenStreetMap tag values
-#' @param class_name A vector of the same length of \code{osm_tag} assigning a class name or number to each
-#' @param priority A vector of integers from 1 to the number of land use classes.
-#' @param method The method to resolve orverlapping polygons.
-#' OpenStreetMap tag and the land use classes.
-#' @return An sf object with the classified
-#' land use classes and area measures added.
+#' @param class_name A vector of the same length of \code{osm_tag} assigning a
+#' class name or number to each OpenStreetMap tag and the land use classes.
+#' @param priority A vector of the same length of \code{osm_tag}, assigning
+#' integers from 1 (greater priority) to the number of land use classes.
+#' @param method The method to resolve orverlapping polygons (see Details).
+#' @return An sf object with the classified land use classes and area measures added.
 #' @examples
 #' area <-  "Lezica y Torrezuri, Partido de Luján"
 #' landuse <- get_osmlanduse(area, crop_to = "bbox")
@@ -43,9 +44,9 @@
 #' @importFrom sf st_union
 #' @importFrom sf st_difference
 #' @export
-classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", class_name,
-                                osm_tag,
-                                priority = NULL, method = "smaller"){
+classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", osm_tag,
+                                class_name, priority = NULL,
+                                method = "smaller"){
 
   osmlanduse <-  st_transform(osmlanduse,crs)
 
@@ -103,15 +104,15 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", class_name,
 
       # Filter not overlapping polygons
 
-      osmlanduse.not.overlap <- osmlanduse[-overlap,]
+      osmlanduse_not_overlap <- osmlanduse[-overlap,]
 
       # Filter overlapping polygons
 
-      osmlanduse.overlap <- osmlanduse[overlap,]
+      osmlanduse_overlap <- osmlanduse[overlap,]
 
       # Measure area in overlapping polygons and adds the column with the data.
 
-      osmlanduse.overlap$area <-  st_area(osmlanduse.overlap)
+      osmlanduse_overlap$area <-  st_area(osmlanduse_overlap)
 
       # Select method to remove overlapping.
 
@@ -119,15 +120,15 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", class_name,
 
       # Reorder the overlapping polygons by area
 
-        osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$area),]
+        osmlanduse_overlap <-  osmlanduse_overlap[order(osmlanduse_overlap$area),]
 
        }, hierarchical = {
 
-          osmlanduse.overlap$priority <- priority[match(osmlanduse.overlap$value, osm_tag)]
+          osmlanduse_overlap$priority <- priority[match(osmlanduse_overlap$value, osm_tag)]
 
           #Order furst by priority and then by area
 
-          osmlanduse.overlap <-  osmlanduse.overlap[order(osmlanduse.overlap$priority,osmlanduse.overlap$area),]
+          osmlanduse_overlap <-  osmlanduse_overlap[order(osmlanduse_overlap$priority,osmlanduse_overlap$area),]
 
       })
 
@@ -135,14 +136,14 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", class_name,
       # overlapping areas are erased from geometries that are indexed
       # at greater numbers in the argument to x
 
-      # As the overlapping polygons are ordered by area,
+      # As the overlapping polygons were ordered following the selected method,
       # this line removes overlapping prioritizing the smaller ones.
 
-      osmlanduse.overlap <- st_difference(osmlanduse.overlap)
+      osmlanduse_overlap <- st_difference(osmlanduse_overlap)
 
-      osmlanduse.overlap.removed <- subset(osmlanduse.overlap,select = names(osmlanduse.not.overlap))
+      osmlanduse_overlap_removed <- subset(osmlanduse_overlap,select = names(osmlanduse_not_overlap))
 
-      osmlanduse <- rbind(osmlanduse.overlap.removed,osmlanduse.not.overlap)
+      osmlanduse <- rbind(osmlanduse_overlap_removed,osmlanduse_not_overlap)
 
     } else {
 
