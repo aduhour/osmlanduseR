@@ -46,4 +46,4 @@ class_name = clc$class_name)
 map_osmlanduse(classified, title = "Lezica y Torrezuri, Luján")
 ```
 
-![](../img/lezicamap.png ){width=90%}
+![](img/lezicamap.png ){width=90%}
