@@ -17,7 +17,7 @@
 map_osmlanduse <- function(classified, title = "osmlanduseR map"){
   map <-  tmap::tm_shape(classified) +
     tmap::tm_polygons(fill = "class_name",
-                fill.scale = tmap::tm_scale_categorical(values = "parks.iguazu_falls")) +
+                fill.scale = tmap::tm_scale_categorical(values = "cols4all.area7")) +
     tmap::tm_compass(position = c("left","top")) +
     tmap::tm_scalebar() +
     tmap::tm_credits(paste("\u00a9 OpenStreetMap contributors")) +
