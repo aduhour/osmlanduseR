@@ -144,10 +144,11 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", osm_tag,
       osmlanduse_overlap_removed <- subset(osmlanduse_overlap,select = names(osmlanduse_not_overlap))
 
       osmlanduse <- rbind(osmlanduse_overlap_removed,osmlanduse_not_overlap)
-
+      message(paste("There were", nrow(osmlanduse_overlap_removed),
+                    "overlapping polygons" ))
     } else {
 
-      cli::cli_inform("There is no overlapping polygons")
+      message("There is no overlapping polygons")
 
     }
 
