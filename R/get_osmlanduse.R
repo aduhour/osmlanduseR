@@ -207,25 +207,22 @@ if(nrow(leisure$osm_polygons) > 0 & !is.null(leisure$osm_multipolygons)){
 # if(nrow(waterway$osm_lines) > 0 | !is.null(waterway$osm_multilines)){
 # waterway <- bind_rows(waterway$osm_lines,
 #                       waterway$osm_multilines) |>
-#   filter(!is.na(waterway)) |>
-#   subset(select = c("osm_id","waterway")) |>
+#   subset(subset = !is.na(waterway), select = c("osm_id","waterway")) |>
 #   rename(value=waterway) |>
 #   mutate(key="waterway")
 # }
 #
 # if(nrow(highway$osm_lines) > 0){
 # highway <- highway$osm_lines |>
-#   filter(!is.na(highway)) |>
-#   subset(select = c("osm_id", "highway")) |>
+#  subset(subset = !is.na(highway),select = c("osm_id", "highway")) |>
 #  rename(value=highway) |>
-#    mutate(key="highway")
+#  mutate(key="highway")
 # }
 #
 #
 # if(nrow(highway$osm_lines)> 0){
 # railway <- railway$osm_lines |>
-#   filter(!is.na(railway)) |>
-#   subset(select = c("osm_id","railway")) |>
+#   subset(subset = !is.na(railway),select = c("osm_id","railway")) |>
 #   rename(value=railway) |>
 #   mutate(key="railway")
 # }
