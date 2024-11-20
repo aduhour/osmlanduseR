@@ -28,7 +28,6 @@
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr mutate
 #' @importFrom dplyr rename
-#' @importFrom dplyr filter
 #' @export
 #'
 get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
@@ -103,20 +102,17 @@ leisure <- add_osm_feature(area_opq,key = "leisure") |>
 if(nrow(natural$osm_polygons) > 0 & !is.null(natural$osm_multipolygons)){
   natural <- bind_rows(st_cast(natural$osm_polygons,"MULTIPOLYGON"),
                      natural$osm_multipolygons) |>
-    filter(!is.na(natural)) |>
-    subset(select=c("osm_id", "natural")) |>
+    subset(subset = !is.na(natural), select=c("osm_id", "natural")) |>
     rename(value=natural) |>
     mutate(key="natural")
 } else if(nrow(natural$osm_polygons) > 0){
    natural <- st_cast(natural$osm_polygons,"MULTIPOLYGON") |>
-     filter(!is.na(natural)) |>
-     subset(select=c("osm_id", "natural")) |>
+     subset(subset = !is.na(natural), select=c("osm_id", "natural")) |>
      rename(value=natural) |>
     mutate(key="natural")
 } else if(!is.null(natural$osm_multipolygons)){
   natural <- natural$osm_multipolygons |>
-    filter(!is.na(natural)) |>
-  subset(select=c("osm_id", "natural")) |>
+  subset(subset = !is.na(natural), select=c("osm_id", "natural")) |>
   rename(value=natural) |>
   mutate(key="natural")
 } else {
@@ -126,20 +122,17 @@ if(nrow(natural$osm_polygons) > 0 & !is.null(natural$osm_multipolygons)){
 if(nrow(landuse$osm_polygons) > 0 & !is.null(landuse$osm_multipolygons)){
   landuse <- bind_rows(st_cast(landuse$osm_polygons,"MULTIPOLYGON"),
                      landuse$osm_multipolygons) |>
-    filter(!is.na(landuse)) |>
-    subset(select = c("osm_id","landuse")) |>
+    subset(subset = !is.na(landuse), select = c("osm_id","landuse")) |>
     rename(value=landuse) |>
     mutate(key="landuse")
 } else if(nrow(landuse$osm_polygons) > 0){
   landuse <- st_cast(landuse$osm_polygons,"MULTIPOLYGON") |>
-    filter(!is.na(landuse)) |>
-    subset(select = c("osm_id","landuse")) |>
+    subset(subset = !is.na(landuse), select = c("osm_id","landuse")) |>
     rename(value=landuse) |>
     mutate(key="landuse")
 } else if(!is.null(landuse$osm_multipolygons)){
   landuse <- landuse$osm_multipolygons |>
-    filter(!is.na(landuse)) |>
-  subset(select = c("osm_id","landuse")) |>
+    subset(subset = !is.na(landuse), select = c("osm_id","landuse")) |>
   rename(value=landuse) |>
   mutate(key="landuse")
 } else {
@@ -151,20 +144,17 @@ if(nrow(landuse$osm_polygons) > 0 & !is.null(landuse$osm_multipolygons)){
 if(nrow(amenity$osm_polygons) > 0 & !is.null(amenity$osm_multipolygons)){
   amenity <- bind_rows(st_cast(amenity$osm_polygons,"MULTIPOLYGON"),
                      amenity$osm_multipolygons) |>
-    filter(!is.na(amenity)) |>
-    subset(select = c("osm_id","amenity")) |>
+    subset(subset = !is.na(amenity), select = c("osm_id","amenity")) |>
     rename(value=amenity) |>
     mutate(key="amenity")
 } else if(nrow(amenity$osm_polygons) > 0){
   amenity <- st_cast(amenity$osm_polygons,"MULTIPOLYGON") |>
-    filter(!is.na(amenity)) |>
-    subset(select = c("osm_id","amenity")) |>
+    subset(subset = !is.na(amenity), select = c("osm_id","amenity")) |>
     rename(value=amenity) |>
     mutate(key="amenity")
 } else if(!is.null(amenity$osm_multipolygons)){
   amenity <- amenity$osm_multipolygons |>
-    filter(!is.na(amenity)) |>
-    subset(select = c("osm_id","amenity")) |>
+  subset(subset = !is.na(amenity), select = c("osm_id","amenity")) |>
   rename(value=amenity) |>
   mutate(key="amenity")
 } else {
@@ -174,20 +164,17 @@ if(nrow(amenity$osm_polygons) > 0 & !is.null(amenity$osm_multipolygons)){
 if(nrow(aeroway$osm_polygons) > 0 & !is.null(aeroway$osm_multipolygons)){
   aeroway <- bind_rows(st_cast(aeroway$osm_polygons,"MULTIPOLYGON"),
                      aeroway$osm_multipolygons) |>
-    filter(!is.na(aeroway)) |>
-    subset(select = c("osm_id","aeroway")) |>
+    subset(subset = !is.na(aeroway), select = c("osm_id","aeroway")) |>
     rename(value=aeroway) |>
     mutate(key="aeroway")
 } else if(nrow(aeroway$osm_polygons) > 0){
   aeroway <- st_cast(aeroway$osm_polygons,"MULTIPOLYGON") |>
-    filter(!is.na(aeroway)) |>
-    subset(select = c("osm_id","aeroway")) |>
+    subset(subset = !is.na(aeroway), select = c("osm_id","aeroway")) |>
     rename(value=aeroway) |>
     mutate(key="aeroway")
 } else if(!is.null(aeroway$osm_multipolygons)){
   aeroway <- aeroway$osm_multipolygons |>
-    filter(!is.na(aeroway)) |>
-    subset(select = c("osm_id","aeroway")) |>
+  subset(subset = !is.na(aeroway), select = c("osm_id","aeroway")) |>
   rename(value=aeroway) |>
   mutate(key="aeroway")
 } else {
@@ -197,20 +184,17 @@ if(nrow(aeroway$osm_polygons) > 0 & !is.null(aeroway$osm_multipolygons)){
 if(nrow(leisure$osm_polygons) > 0 & !is.null(leisure$osm_multipolygons)){
   leisure <- bind_rows(st_cast(leisure$osm_polygons,"MULTIPOLYGON"),
                      leisure$osm_multipolygons) |>
-    filter(!is.na(leisure)) |>
-    subset(select = c("osm_id","leisure")) |>
+    subset(subset = !is.na(leisure), select = c("osm_id","leisure")) |>
     rename(value=leisure) |>
     mutate(key="leisure")
 } else if(nrow(leisure$osm_polygons) > 0){
   leisure <- st_cast(leisure$osm_polygons,"MULTIPOLYGON") |>
-    filter(!is.na(leisure)) |>
-    subset(select = c("osm_id","leisure")) |>
+    subset(subset = !is.na(leisure), select = c("osm_id","leisure")) |>
     rename(value=leisure) |>
     mutate(key="leisure")
 } else if(!is.null(leisure$osm_multipolygons)){
   leisure <- leisure$osm_multipolygons |>
-    filter(!is.na(leisure)) |>
-    subset(select = c("osm_id","leisure")) |>
+    subset(subset = !is.na(leisure), select = c("osm_id","leisure")) |>
     rename(value=leisure) |>
     mutate(key="leisure")
 } else {
