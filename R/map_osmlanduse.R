@@ -13,24 +13,16 @@
 #' class_name = clc$class_name)
 #' map <- map_osmlanduse(classified)
 #' map
-#' @importFrom tmap tm_shape
-#' @importFrom tmap tm_polygons
-#' @importFrom tmap tm_scale_categorical
-#' @importFrom tmap tm_scalebar
-#' @importFrom tmap tm_compass
-#' @importFrom tmap tm_credits
-#' @importFrom tmap tm_layout
-#' @importFrom tmap tm_title
 #' @export
 map_osmlanduse <- function(classified, title = "osmlanduseR map"){
-  map <-  tm_shape(classified) +
-    tm_polygons(fill = "class_name",
-                fill.scale = tm_scale_categorical(values = "parks.iguazu_falls")) +
-    tm_compass(position = c("left","top")) +
-    tm_scalebar() +
-    tm_credits(paste("\u00a9 OpenStreetMap contributors")) +
-    tm_title(title) +
-    tm_layout(legend.frame = FALSE)
+  map <-  tmap::tm_shape(classified) +
+    tmap::tm_polygons(fill = "class_name",
+                fill.scale = tmap::tm_scale_categorical(values = "parks.iguazu_falls")) +
+    tmap::tm_compass(position = c("left","top")) +
+    tmap::tm_scalebar() +
+    tmap::tm_credits(paste("\u00a9 OpenStreetMap contributors")) +
+    tmap::tm_title(title) +
+    tmap::tm_layout(legend.frame = FALSE)
   map
 }
 

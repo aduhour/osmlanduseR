@@ -5,7 +5,7 @@
 The *osmlanduseR* package is designed to download, measure, 
 classify and map land use data from OpenStreetMap.
 
-The package is in development and incorporates features to consider polygons
+The package incorporates features to consider polygons
 and multipolygons tagged as _natural=\*_, _landuse=\*_, _amenity=\*_,
 _aeroway=\*_, _leisure=\*_.
 
@@ -15,7 +15,7 @@ the classes defined by the CORINE Land Cover and INTA-FAO systems.
 
 ## Installation
 
-The package can be installed from:
+The package is under development and can be installed from:
 
 ```
 install.packages("remotes")
