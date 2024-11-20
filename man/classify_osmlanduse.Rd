@@ -2,14 +2,14 @@
 % Please edit documentation in R/classify_osmlanduse.R
 \name{classify_osmlanduse}
 \alias{classify_osmlanduse}
-\title{Classify land use}
+\title{Classify Land Use}
 \usage{
 classify_osmlanduse(
   osmlanduse,
   crs = 5347,
   units = "ha",
-  class_name,
   osm_tag,
+  class_name,
   priority = NULL,
   method = "smaller"
 )
@@ -17,32 +17,33 @@ classify_osmlanduse(
 \arguments{
 \item{osmlanduse}{An sf object, the output of get_osmlanduse.}
 
-\item{crs}{Set the Coordinate reference system to transform the data to measure area.}
+\item{crs}{Set the Coordinate Reference System to transform the data to measure area.}
 
 \item{units}{The units for the area measures.}
 
-\item{class_name}{A vector of the same length of \code{osm_tag} assigning a class name or number to each}
-
 \item{osm_tag}{A vector of OpenStreetMap tag values}
 
-\item{priority}{A vector of integers from 1 to the number of land use classes.}
+\item{class_name}{A vector of the same length of \code{osm_tag} assigning a
+class name or number to each OpenStreetMap tag and the land use classes.}
 
-\item{method}{The method to resolve orverlapping polygons.
-OpenStreetMap tag and the land use classes.}
+\item{priority}{A vector of the same length of \code{osm_tag}, assigning
+integers from 1 (greater priority) to the number of land use classes.}
+
+\item{method}{The method to resolve orverlapping polygons (see Details).}
 }
 \value{
-An sf object with the classified
-land use classes and area measures added.
+An sf object with the classified land use classes and area measures added.
 }
 \description{
 Classify OpenStreetMap tags into predefined land use classes,
 removes overlapping polygons and measure area.
 }
 \details{
-The function classifies every land use polygon to the selected clases,
+The function classifies every land use polygon to the selected classes,
 removes overlapping prioritizing smaller polygons as suggested by
-Schultz et al., (2017),
-or establishing land use priorities as suggested by Fonte et al., (2016),
+Schultz et al., (2017) (method \code{smaller}),
+or establishing land use priorities as suggested by Fonte et al., (2016)
+(method \code{hierarchichal}),
 then adds a column with area measure.
 
 The default coordinate reference system is POSGAR 2007,
