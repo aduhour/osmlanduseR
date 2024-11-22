@@ -13,7 +13,7 @@ get_osmlanduse(area = "Partido de Lujan", crop_to = "area")
 intersection with the polygon ("area", default) or the bounding box ("bbox").}
 }
 \value{
-An sf object with land use data.
+A list with two sf objects:  The area and the land use data.
 }
 \description{
 Build an Overpass query to retrieve OSM data for land use and

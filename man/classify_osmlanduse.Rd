@@ -51,15 +51,16 @@ adopted by the National Geographic Institute for Argentina.
 }
 \examples{
 area <-  "Lezica y Torrezuri, Partido de Luján"
-landuse <- get_osmlanduse(area, crop_to = "bbox")
+lezica <- get_osmlanduse(area, crop_to = "bbox")
 data(clc)
-classified <- classify_osmlanduse(landuse,osm_tag = clc$osm_tag,
+classified <- classify_osmlanduse(lezica$osmlanduse,osm_tag = clc$osm_tag,
 class_name = clc$class_name)
 }
 \references{
 Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A. 2017.
 Open land cover from OpenStreetMap and remote sensing.
 International Journal of Applied Earth Observation and Geoinformation.
-#' \url{http://dx.doi.org/10.1016/j.jag.2017.07.014}
+\url{http://dx.doi.org/10.1016/j.jag.2017.07.014}
+
 Fonte, C.; Minghini, M.; Antoniou, V.; See, L.; Patriarca, J.;
 }

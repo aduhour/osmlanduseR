@@ -7,9 +7,9 @@
 #' @return A tmap map
 #' @examples
 #' area <-  "Lezica y Torrezuri, Partido de Luján"
-#' landuse <- get_osmlanduse(area, crop_to = "bbox")
+#' lezica <- get_osmlanduse(area, crop_to = "bbox")
 #' data(clc)
-#' classified <- classify_osmlanduse(landuse,osm_tag = clc$osm_tag,
+#' classified <- classify_osmlanduse(lezica$osmlanduse,osm_tag = clc$osm_tag,
 #' class_name = clc$class_name)
 #' map <- map_osmlanduse(classified)
 #' map

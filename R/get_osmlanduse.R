@@ -9,8 +9,7 @@
 #' @details
 #' The function retrieves OSM elements tagged with keys: natural, landuse, natural
 #' amenity, aeroway and leisure.
-#'
-#' @return An sf object with land use data.
+#' @return A list with two sf objects:  The area and the land use data.
 #' @examples
 #' area <-  "Lezica y Torrezuri, Partido de Luján"
 #' landuse <- get_osmlanduse(area, crop_to = "bbox")
