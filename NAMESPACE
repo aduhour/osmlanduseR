@@ -3,7 +3,6 @@
 export(classify_osmlanduse)
 export(get_osmlanduse)
 export(map_osmlanduse)
-importFrom(dplyr,bind_rows)
 importFrom(osmdata,add_osm_feature)
 importFrom(osmdata,getbb)
 importFrom(osmdata,opq)

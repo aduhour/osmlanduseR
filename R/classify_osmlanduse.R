@@ -139,6 +139,8 @@ classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", osm_tag,
       # As the overlapping polygons were ordered following the selected method,
       # this line removes overlapping prioritizing the smaller ones.
 
+      osmlanduse_overlap <- st_make_valid(osmlanduse_overlap)
+
       osmlanduse_overlap <- st_difference(osmlanduse_overlap)
 
       osmlanduse_overlap_removed <- subset(osmlanduse_overlap,select = names(osmlanduse_not_overlap))

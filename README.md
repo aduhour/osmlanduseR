@@ -24,7 +24,7 @@ remotes::install_github("aduhour/osmlanduseR", dependencies = TRUE)
 
 ## Usage
 
-- Download land use data from the Lezica y Torrezuri locality en Luján:
+- Download land use data from the Lezica y Torrezuri locality in Luján:
 
 ```
 area <-  "Lezica y Torrezuri, Partido de Luján"

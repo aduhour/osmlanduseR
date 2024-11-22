@@ -12,8 +12,7 @@ RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10),
     osmdata,
-    sf,
-    dplyr
+    sf
 URL: https://github.com/aduhour/osmlanduseR
 BugReports: https://github.com/aduhour/osmlanduseR/issues
 Imports: 
