@@ -24,11 +24,11 @@
 #  An Automated methodology for converting OSM data into a land use/cover map.
 #  6th International Conference on Cartography & GIS.
 #' @param osmlanduse An sf object, the output of get_osmlanduse.
-#' @param crs Set the Coordinate Reference System to transform the data to measure area.
-#' @param units The units for the area measures.
 #' @param osm_tag A vector of OpenStreetMap tag values
 #' @param class_name A vector of the same length of \code{osm_tag} assigning a
-#' class name or number to each OpenStreetMap tag and the land use classes.
+#' class name or number to each OpenStreetMap tag.
+#' @param crs Set the Coordinate Reference System to transform the data to measure area.
+#' @param units The units for the area measures.
 #' @param priority A vector of the same length of \code{osm_tag}, assigning
 #' integers from 1 (greater priority) to the number of land use classes.
 #' @param method The method to resolve orverlapping polygons (see Details).
@@ -45,8 +45,8 @@
 #' @importFrom sf st_union
 #' @importFrom sf st_difference
 #' @export
-classify_osmlanduse <- function(osmlanduse, crs=5347, units="ha", osm_tag,
-                                class_name, priority = NULL,
+classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
+                                crs=5347, units="ha", priority = NULL,
                                 method = "smaller"){
 
   osmlanduse <-  st_transform(osmlanduse,crs)

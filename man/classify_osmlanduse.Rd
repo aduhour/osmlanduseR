@@ -6,10 +6,10 @@
 \usage{
 classify_osmlanduse(
   osmlanduse,
-  crs = 5347,
-  units = "ha",
   osm_tag,
   class_name,
+  crs = 5347,
+  units = "ha",
   priority = NULL,
   method = "smaller"
 )
@@ -17,14 +17,14 @@ classify_osmlanduse(
 \arguments{
 \item{osmlanduse}{An sf object, the output of get_osmlanduse.}
 
-\item{crs}{Set the Coordinate Reference System to transform the data to measure area.}
-
-\item{units}{The units for the area measures.}
-
 \item{osm_tag}{A vector of OpenStreetMap tag values}
 
 \item{class_name}{A vector of the same length of \code{osm_tag} assigning a
-class name or number to each OpenStreetMap tag and the land use classes.}
+class name or number to each OpenStreetMap tag.}
+
+\item{crs}{Set the Coordinate Reference System to transform the data to measure area.}
+
+\item{units}{The units for the area measures.}
 
 \item{priority}{A vector of the same length of \code{osm_tag}, assigning
 integers from 1 (greater priority) to the number of land use classes.}
