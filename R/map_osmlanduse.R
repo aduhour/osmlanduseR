@@ -15,9 +15,12 @@
 #' map
 #' @export
 map_osmlanduse <- function(classified, title = "osmlanduseR map"){
-  map <-  tmap::tm_shape(classified) +
-    tmap::tm_polygons(fill = "class_name",
-                fill.scale = tmap::tm_scale_categorical(values = "cols4all.area7")) +
+  lndagg <- aggregate(subset(classified,select = area),
+                      by=list("Land use class" = classified$class_name),
+                      FUN = sum)
+  map <-  tmap::tm_shape(lndagg) +
+    tmap::tm_polygons(fill = "Land use class",
+                      fill.scale = tmap::tm_scale_categorical(values = "cols4all.area7")) +
     tmap::tm_compass(position = c("left","top")) +
     tmap::tm_scalebar() +
     tmap::tm_credits(paste("\u00a9 OpenStreetMap contributors")) +
