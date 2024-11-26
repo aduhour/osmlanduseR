@@ -313,9 +313,9 @@ The implemented procedures use functions from the packages
 [@Padgham2017; @Pebesma2018; @Tennekes2018]
 
 
-# Usage
+# Example application
 
-## Package usage
+## Example application: Basic usage
 
 - By calling the function **get_osmlanduse** with default arguments, the land use data of Luján in Buenos Aires, Argentina is dowloaded:
 
@@ -326,7 +326,7 @@ The implemented procedures use functions from the packages
 
 ![](img/lujan_osmlanduse.png){width=80%}
 
-## Package usage
+## Example application: Basic usage
 
 - Then, the result can be classified in the classes of the CORINE Land Cover
 scheme using the data set _clc_
@@ -338,26 +338,23 @@ lujan.clc <- classify_osmlanduse(lujan$osmlanduse,
                                        clc$class_name) 
 ```
 
-![](img/lujan.clc.png){width=90%}
+![](img/lujan.clc.png){width=90%} 
 
-## Package usage
+## Example application: Basic usage
 
 ```{r mapclc, echo = TRUE, eval=FALSE}
 map_osmlanduse(lujan.clc, "Partido de Luján")
 ```
+![](img/lujanclc.png){width=90%}
 
 
+## Example application: Land use map of Luján
 
+The methods developed in the package _osmlanduseR_ were used to download the elements associated with land use from OSM. 
 
-# Results and discusion
+The geometric operations oriented to remove overlapping were successfully accomplished, and the matching of the present tags with a user-defined list of land use classes.
 
-## Land use map
-
-The methods developed in the package osmlanduseR were employed to download the elements associated with land use from OSM. 
-
-The geometric operations oriented to remove overlapping were successfully accomplished, and the matching of the present tags with a user-defined list of land use classes resulted in the map presented in Figure 1. 
-
-The land use polygons retrieved from OSM in the municipality of Luján were found to cover 71407.8 ha, or 92.4% of the total area.
+The land use polygons retrieved from OSM in the municipality of Luján were found to cover 71742.8 ha, or 92.8% of the total area.
 
 ## Land use map
 
