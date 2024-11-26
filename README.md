@@ -1,10 +1,8 @@
-<img src="man/figures/logo.png" align="right" height="139" alt="" />
-
 # osmlanduseR
 
-## Description
+<img src="man/figures/logo.png" align="right" height="139" alt="" />
 
-The *osmlanduseR* package is designed to download, measure, 
+A package designed to download, measure, 
 classify and map land use data from OpenStreetMap.
 
 The package incorporates features to consider polygons
