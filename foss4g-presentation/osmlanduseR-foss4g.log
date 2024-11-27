@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.11.25)  26 NOV 2024 17:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.11.25)  27 NOV 2024 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1546,43 +1546,40 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
 [32
 
 ]
-<img/lujanmap.png, id=266, 456.5055pt x 614.295pt>
-File: img/lujanmap.png Graphic file (type png)
-<use img/lujanmap.png>
-Package pdftex.def Info: img/lujanmap.png  used on input line 664.
-(pdftex.def)             Requested size: 182.23674pt x 245.22623pt.
+\openout4 = `osmlanduseR-foss4g.vrb'.
 
-Overfull \vbox (77.02446pt too high) detected at line 664
+(./osmlanduseR-foss4g.vrb)
+File: img/logo-horizontal.635d61fc.png Graphic file (type png)
+<use img/logo-horizontal.635d61fc.png>
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
+74.
+(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
+[33
+
+]
+<img/frlujan-intafao.png, id=272, 602.25pt x 563.85657pt>
+File: img/frlujan-intafao.png Graphic file (type png)
+<use img/frlujan-intafao.png>
+Package pdftex.def Info: img/frlujan-intafao.png  used on input line 680.
+(pdftex.def)             Requested size: 261.93068pt x 245.2326pt.
+
+Overfull \vbox (33.48656pt too high) detected at line 680
  []
 
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
-64.
-(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
-[33
-
- <./img/lujanmap.png>]
-File: img/logo-horizontal.635d61fc.png Graphic file (type png)
-<use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
-71.
+80.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [34
 
-]
-File: img/logo-horizontal.635d61fc.png Graphic file (type png)
-<use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
-75.
-(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
-[35
+ <./img/frlujan-intafao.png (PNG copy)>] [35
 
 ]
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
-83.
+90.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [36
 
@@ -1590,7 +1587,7 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
-96.
+94.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [37
 
@@ -1598,7 +1595,7 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 6
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
-07.
+02.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [38
 
@@ -1606,7 +1603,7 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
-17.
+15.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [39
 
@@ -1614,87 +1611,103 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
-29.
+26.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [40
 
-] [41
+]
+File: img/logo-horizontal.635d61fc.png Graphic file (type png)
+<use img/logo-horizontal.635d61fc.png>
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
+36.
+(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
+[41
 
 ]
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
-42.
+48.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [42
 
-]
-File: img/logo-horizontal.635d61fc.png Graphic file (type png)
-<use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
-51.
-(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
-[43
+] [43
 
 ]
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
-59.
+61.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [44
 
 ]
+File: img/logo-horizontal.635d61fc.png Graphic file (type png)
+<use img/logo-horizontal.635d61fc.png>
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
+70.
+(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
+[45
+
+]
+File: img/logo-horizontal.635d61fc.png Graphic file (type png)
+<use img/logo-horizontal.635d61fc.png>
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
+78.
+(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
+[46
+
+]
 File: img/osmlanduseR.png Graphic file (type png)
 <use img/osmlanduseR.png>
-Package pdftex.def Info: img/osmlanduseR.png  used on input line 777.
+Package pdftex.def Info: img/osmlanduseR.png  used on input line 796.
 (pdftex.def)             Requested size: 99.58272pt x 116.30951pt.
 <osmlanduseR-foss4g_files/figure-beamer/fa-icon-a425fa2625f56e9457d0cc0039a4460
-6.pdf, id=348, 256.96pt x 256.96pt>
+6.pdf, id=360, 256.96pt x 256.96pt>
 File: osmlanduseR-foss4g_files/figure-beamer/fa-icon-a425fa2625f56e9457d0cc0039
 a44606.pdf Graphic file (type pdf)
 <use osmlanduseR-foss4g_files/figure-beamer/fa-icon-a425fa2625f56e9457d0cc0039a
 44606.pdf>
 Package pdftex.def Info: osmlanduseR-foss4g_files/figure-beamer/fa-icon-a425fa2
-625f56e9457d0cc0039a44606.pdf  used on input line 777.
+625f56e9457d0cc0039a44606.pdf  used on input line 796.
 (pdftex.def)             Requested size: 10.94711pt x 10.94711pt.
 File: osmlanduseR-foss4g_files/figure-beamer/fa-icon-9e25601f72c0b4fff1c079a486
 ca8bba.pdf Graphic file (type pdf)
 <use osmlanduseR-foss4g_files/figure-beamer/fa-icon-9e25601f72c0b4fff1c079a486c
 a8bba.pdf>
 Package pdftex.def Info: osmlanduseR-foss4g_files/figure-beamer/fa-icon-9e25601
-f72c0b4fff1c079a486ca8bba.pdf  used on input line 777.
+f72c0b4fff1c079a486ca8bba.pdf  used on input line 796.
 (pdftex.def)             Requested size: 10.60501pt x 10.94711pt.
 <osmlanduseR-foss4g_files/figure-beamer/fa-icon-a7ff419e70980f9f1a65816048d9452
-6.pdf, id=349, 256.96pt x 256.96pt>
+6.pdf, id=361, 256.96pt x 256.96pt>
 File: osmlanduseR-foss4g_files/figure-beamer/fa-icon-a7ff419e70980f9f1a65816048
 d94526.pdf Graphic file (type pdf)
 <use osmlanduseR-foss4g_files/figure-beamer/fa-icon-a7ff419e70980f9f1a65816048d
 94526.pdf>
 Package pdftex.def Info: osmlanduseR-foss4g_files/figure-beamer/fa-icon-a7ff419
-e70980f9f1a65816048d94526.pdf  used on input line 777.
+e70980f9f1a65816048d94526.pdf  used on input line 796.
 (pdftex.def)             Requested size: 10.94711pt x 10.94711pt.
-<img/logounlu.png, id=350, 68.8974pt x 69.01785pt>
+<img/logounlu.png, id=362, 68.8974pt x 69.01785pt>
 File: img/logounlu.png Graphic file (type png)
 <use img/logounlu.png>
-Package pdftex.def Info: img/logounlu.png  used on input line 777.
+Package pdftex.def Info: img/logounlu.png  used on input line 796.
 (pdftex.def)             Requested size: 34.0838pt x 34.14339pt.
-<img/Logo_BN-Basicas.png, id=351, 781.41937pt x 903.375pt>
+<img/Logo_BN-Basicas.png, id=363, 781.41937pt x 903.375pt>
 File: img/Logo_BN-Basicas.png Graphic file (type png)
 <use img/Logo_BN-Basicas.png>
-Package pdftex.def Info: img/Logo_BN-Basicas.png  used on input line 777.
+Package pdftex.def Info: img/Logo_BN-Basicas.png  used on input line 796.
 (pdftex.def)             Requested size: 29.52254pt x 34.13011pt.
-<img/logoinedes-conicet.jpg, id=352, 359.3425pt x 200.75pt>
+<img/logoinedes-conicet.jpg, id=364, 359.3425pt x 200.75pt>
 File: img/logoinedes-conicet.jpg Graphic file (type jpg)
 <use img/logoinedes-conicet.jpg>
-Package pdftex.def Info: img/logoinedes-conicet.jpg  used on input line 777.
+Package pdftex.def Info: img/logoinedes-conicet.jpg  used on input line 796.
 (pdftex.def)             Requested size: 61.11482pt x 34.14235pt.
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
 Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 7
-77.
+96.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
-[45
+[47
 
  <./osmlanduseR-foss4g_files/figure-beamer/fa-icon-a425fa2625f56e9457d0cc0039a4
 4606.pdf> <./osmlanduseR-foss4g_files/figure-beamer/fa-icon-a7ff419e70980f9f1a6
@@ -1704,39 +1717,21 @@ pdfTeX warning: pdflatex (file ./osmlanduseR-foss4g_files/figure-beamer/fa-icon
 -a7ff419e70980f9f1a65816048d94526.pdf): PDF inclusion: multiple pdfs with page 
 group included in a single page
 > <./img/logounlu.png> <./img/Logo_BN-Basicas.png> <./img/logoinedes-conicet.jp
-g>] [46
+g>] [48
 
 ]
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
-87.
-(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
-[47
-
-]
-File: img/logo-horizontal.635d61fc.png Graphic file (type png)
-<use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
-87.
-(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
-[48
-
-
-]
-File: img/logo-horizontal.635d61fc.png Graphic file (type png)
-<use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
-87.
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 9
+06.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [49
 
-
 ]
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
-87.
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 9
+06.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [50
 
@@ -1744,8 +1739,8 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
 ]
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
-87.
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 9
+06.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [51
 
@@ -1753,8 +1748,8 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
 ]
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
-87.
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 9
+06.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [52
 
@@ -1762,10 +1757,28 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
 ]
 File: img/logo-horizontal.635d61fc.png Graphic file (type png)
 <use img/logo-horizontal.635d61fc.png>
-Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
-87.
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 9
+06.
 (pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
 [53
+
+
+]
+File: img/logo-horizontal.635d61fc.png Graphic file (type png)
+<use img/logo-horizontal.635d61fc.png>
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 9
+06.
+(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
+[54
+
+
+]
+File: img/logo-horizontal.635d61fc.png Graphic file (type png)
+<use img/logo-horizontal.635d61fc.png>
+Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 9
+06.
+(pdftex.def)             Requested size: 42.6798pt x 41.3845pt.
+[55
 
 
 ]
@@ -1780,10 +1793,10 @@ Package pdftex.def Info: img/logo-horizontal.635d61fc.png  used on input line 8
 
 (./osmlanduseR-foss4g.aux) ) 
 Here is how much of TeX's memory you used:
- 29062 strings out of 477975
- 586015 string characters out of 5839280
+ 29079 strings out of 477975
+ 586464 string characters out of 5839280
  1868330 words of memory out of 5000000
- 48273 multiletter control sequences out of 15000+600000
+ 48282 multiletter control sequences out of 15000+600000
  574542 words of font info for 129 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  128i,14n,122p,1887b,758s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1796,10 +1809,10 @@ nts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso1
 0.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/font
 s/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb
 >
-Output written on osmlanduseR-foss4g.pdf (53 pages, 4633285 bytes).
+Output written on osmlanduseR-foss4g.pdf (55 pages, 4380005 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 424 compressed objects within 5 object streams
- 182 named destinations out of 1000 (max. 500000)
- 39110 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 557 PDF objects out of 1000 (max. 8388607)
+ 440 compressed objects within 5 object streams
+ 188 named destinations out of 1000 (max. 500000)
+ 39118 words of extra memory for PDF output out of 42996 (max. 10000000)
 

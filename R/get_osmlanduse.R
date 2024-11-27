@@ -45,7 +45,8 @@ get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
 
       bbox <- st_bbox(area)
 
-    }
+    } else
+    {stop("area must be of class 'sf' or 'character'")}
 
 
 # Build Overpass query

@@ -356,10 +356,27 @@ The geometric operations oriented to remove overlapping were successfully accomp
 
 The land use polygons retrieved from OSM in the municipality of Luján were found to cover 71742.8 ha, or 92.8% of the total area.
 
-## Land use map
+## Example application: Flood risk and land use classes in Luján
 
-![Default map output showing land use classes for the area of the municipality of Luján, Buenos Aires, Argentina ](img/lujanmap.png){width=80%}
+The Buenos Aires province produced flood risk maps for the Luján river basin.
 
+The corresponding area for the Luján city was selected a map of land use classes:
+
+```{r flood risk, echo=TRUE, eval=FALSE}
+fr <- get_osmlanduse(floodrisk)
+fr.intafao <- classify_osmlanduse(fr$osmlanduse,
+                                                 intafao$osm_tag,
+                                                 intafao$class_name)
+map_osmlanduse(fr.intafao,"Land use and flood risk in Luján.")
+```
+
+
+## Example application: Flood risk and land use classes in Luján
+
+![](img/frlujan-intafao.png)
+
+
+# Future work and new features.
 
 ## Future work and new features.
 
@@ -392,7 +409,7 @@ In their study, @Schultz2017 described a method for using the information availa
 
 ### Map accuracy
 
-An important component to add in the future is a method for estimating the accuracy of a classification derived from other sources or constructed using other methods in a specific area.
+An important component to add in the future is a to estimate the accuracy of a classification derived from other sources or constructed using other methods in a specific area.
 
 ## Future work and new features.
 
@@ -406,7 +423,7 @@ The package can implement the detection of issues, for example those related to 
 
 ## Conclusions
 
-The work conducted since the initial development of osmlanduseR has made it possible to use data from OSM for land use analysis and to implement a classification system.
+The work conducted since the initial development of _osmlanduseR_ has made it possible to use data from OSM for land use analysis and to implement a classification system.
 
 Additionally, the developed package provides a basis for integrating additional complementary methodologies referenced in previous research into a unified platform.
 

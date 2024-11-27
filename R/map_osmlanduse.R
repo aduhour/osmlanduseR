@@ -21,11 +21,16 @@ map_osmlanduse <- function(classified, title = "osmlanduseR map"){
   map <-  tmap::tm_shape(lndagg) +
     tmap::tm_polygons(fill = "Land use class",
                       fill.scale = tmap::tm_scale_categorical(values = "cols4all.area7")) +
+    tmap::tm_add_legend(type = "polygons", title = "Area (ha)",
+                        labels = round(lndagg$area,1),
+                        fill="white",col="white")+
     tmap::tm_compass(position = c("left","top")) +
     tmap::tm_scalebar() +
     tmap::tm_credits(paste("\u00a9 OpenStreetMap contributors")) +
     tmap::tm_title(title) +
-    tmap::tm_layout(legend.frame = FALSE)
+    #tmap::tmap_options(component.autoscale = FALSE)+
+    tmap::tm_layout(legend.frame = FALSE,legend.stack="horizontal",
+                    legend.outside=TRUE,legend.outside.position = "bottom")
   map
 }
 
