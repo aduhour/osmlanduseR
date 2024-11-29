@@ -9,7 +9,7 @@
 #' Schultz et al., (2017) (method \code{smaller}),
 #' or establishing land use priorities as suggested by Fonte et al., (2016)
 #' (method \code{hierarchichal}),
-#' then adds a column with area measure.
+#' then adds a column with the area measure.
 #'
 #' The default coordinate reference system is POSGAR 2007,
 #' adopted by the National Geographic Institute for Argentina.
@@ -23,7 +23,7 @@
 #  Brovelli, M. & Milcinski, G. 2016.
 #  An Automated methodology for converting OSM data into a land use/cover map.
 #  6th International Conference on Cartography & GIS.
-#' @param osmlanduse An sf object, the output of get_osmlanduse.
+#' @param osmlanduse An sf object, part of the output of \code{get_osmlanduse}.
 #' @param osm_tag A vector of OpenStreetMap tag values
 #' @param class_name A vector of the same length of \code{osm_tag} assigning a
 #' class name or number to each OpenStreetMap tag.

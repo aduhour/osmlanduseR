@@ -4,6 +4,7 @@
 #'
 #' @param classified Output of classify_osmlanduse.
 #' @param title Map title
+#' @param ... Optional arguments passed to \code{tm_layout} function.
 #' @return A tmap map
 #' @examples
 #' area <-  "Lezica y Torrezuri, Partido de Luján"
@@ -13,9 +14,10 @@
 #' class_name = clc$class_name)
 #' map <- map_osmlanduse(classified)
 #' map
+#' @importFrom stats aggregate
 #' @export
-map_osmlanduse <- function(classified, title = "osmlanduseR map"){
-  lndagg <- aggregate(subset(classified,select = area),
+map_osmlanduse <- function(classified, title = "osmlanduseR map",...){
+  lndagg <- aggregate(subset(classified,select = "area"),
                       by=list("Land use class" = classified$class_name),
                       FUN = sum)
   map <-  tmap::tm_shape(lndagg) +
@@ -28,9 +30,10 @@ map_osmlanduse <- function(classified, title = "osmlanduseR map"){
     tmap::tm_scalebar() +
     tmap::tm_credits(paste("\u00a9 OpenStreetMap contributors")) +
     tmap::tm_title(title) +
-    #tmap::tmap_options(component.autoscale = FALSE)+
-    tmap::tm_layout(legend.frame = FALSE,legend.stack="horizontal",
-                    legend.outside=TRUE,legend.outside.position = "bottom")
+    tmap::tm_layout(legend.stack = "horizontal",
+                    legend.outside = TRUE,
+                    legend.outside.position = "bottom",
+                    ...)
   map
 }
 

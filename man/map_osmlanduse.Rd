@@ -4,12 +4,14 @@
 \alias{map_osmlanduse}
 \title{Map Land use}
 \usage{
-map_osmlanduse(classified, title = "osmlanduseR map")
+map_osmlanduse(classified, title = "osmlanduseR map", ...)
 }
 \arguments{
 \item{classified}{Output of classify_osmlanduse.}
 
 \item{title}{Map title}
+
+\item{...}{Optional arguments passed to \code{tm_layout} function.}
 }
 \value{
 A tmap map
