@@ -28,7 +28,7 @@ remotes::install_github("aduhour/osmlanduseR", dependencies = TRUE)
 
 ```
 area <-  "Lezica y Torrezuri, Partido de Luján"
-landuse <- get_osmlanduse(area, crop_to = "bbox")
+lezica <- get_osmlanduse(area, crop_to = "bbox")
 ```
 
 
@@ -36,14 +36,14 @@ landuse <- get_osmlanduse(area, crop_to = "bbox")
 
 ```
 data(clc)
-classified <- classify_osmlanduse(landuse,osm_tag = clc$osm_tag,
+lezica.clc <- classify_osmlanduse(lezica$landuse,osm_tag = clc$osm_tag,
 class_name = clc$class_name)
 ```
 
 - Map
 
 ```
-map_osmlanduse(classified, title = "Lezica y Torrezuri, Luján")
+map_osmlanduse(lezica.clc, title = "Lezica y Torrezuri, Luján")
 ```
 
 ![](img/lezicamap.png )
