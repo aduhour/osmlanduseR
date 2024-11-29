@@ -127,7 +127,7 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
 
           osmlanduse_overlap$priority <- priority[match(osmlanduse_overlap$value, osm_tag)]
 
-          #Order furst by priority and then by area
+          #Order first by priority and then by area
 
           osmlanduse_overlap <-  osmlanduse_overlap[order(osmlanduse_overlap$priority,osmlanduse_overlap$area),]
 
@@ -138,7 +138,7 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
       # at greater numbers in the argument to x
 
       # As the overlapping polygons were ordered following the selected method,
-      # this line removes overlapping prioritizing the smaller ones.
+      # this line removes overlapping:
 
       osmlanduse_overlap <- st_make_valid(osmlanduse_overlap)
 
@@ -147,7 +147,8 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
       osmlanduse_overlap_removed <- subset(osmlanduse_overlap,select = names(osmlanduse_not_overlap))
 
       osmlanduse <- rbind(osmlanduse_overlap_removed,osmlanduse_not_overlap)
-      message(paste("There were", nrow(osmlanduse_overlap_removed),
+
+        message(paste("There were", nrow(osmlanduse_overlap_removed),
                     "overlapping polygons" ))
     } else {
 
