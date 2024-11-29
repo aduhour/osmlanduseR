@@ -5,11 +5,12 @@
 \alias{intafao}
 \title{INTA FAO Land Cover Classes}
 \format{
-A data frame with 65rows and 5 columns:
+A data frame with 65rows and 6 columns:
 \describe{
   \item{class}{Number.}
   \item{class_number}{LCCS Class number.}
   \item{class_priority}{Priority to remove overlapping.}
+  \item{class_name_short}{Abreviated LCCS Class Name.}
   \item{class_name}{LCCS Class Name.}
   \item{osm_tag}{OpenStreetMap tag value associated with each class.}
 }
