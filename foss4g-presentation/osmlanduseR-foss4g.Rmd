@@ -170,7 +170,7 @@ These authors have developed methods and algorithms for retrieving, analyzing, a
 
 From these works also derived the [osmlanduse.org `r fa("link", fill = "blue")`](osmlanduse.org) initiative, which delivers OSM land-use/land-cover information mapped to CORINE classes as a Web Map Service (WMS).
 
-![](img/OSM-Landuse-2- 2024-11-25 at 09-01-33.png){width=90%}
+![](img/OSMLanduseorg-screenshot-2-2024-11-25at 09-01-33.png){width=90%}
 
 ## Introduction
 
@@ -194,15 +194,15 @@ Such an approach would facilitate harmonization of OSM data with other classific
 
 ## Creation of a land use map in OpenStreetMap
 
-Since 2016, land use data of the Lujan River’s middle basin have been contributed to OSM as part of projects conducted by the National University of Luján. 
+Since 2016, land use data of the Lujan River’s middle basin have been contributed to OSM as part of projects carried out by the National University of Luján. 
 
 Land use was visually assessed using satellite imagery, and representative polygons were added with appropriate tags. Geometries were created preferably as multipolygons. 
 
-## Creation of a land use map in OpenStreetMap
+## Creation of a land use ma    p in OpenStreetMap
 
 The boundaries of each geometry were drawn to avoid sharing nodes with the road and rail networks. 
 
-The JOSM program was used for OSM edition, using imagery available within the program, provided by Bing, Mapbox, Digital Globe, and the National Geographic Institute of Argentina, with capture dates from 2016 to 2020.
+The JOSM program was used for OSM edition, using imagery available within the program provided by Bing, Mapbox, Digital Globe, and the National Geographic Institute of Argentina. These images were captured between 2016 and 2022.
 
 \centering 
 
@@ -217,7 +217,7 @@ The JOSM program was used for OSM edition, using imagery available within the pr
 
 `r fa("wrench")`
 
-The package is in the early stages of development 
+The package is in its early stages of development 
 
 `r fa("github")` 
 
@@ -225,16 +225,16 @@ The code repository is accessible in [https://github.com/aduhour/osmlanduseR](ht
 
 ## `r fa("r-project", fill = "steelblue")` package implementation
 
-The package comprises a number of features aimed at: 
+The package comprises a number of features aiming at: 
 
-1) Download a set of land use related data from OSM using the overpass API: (**get_osmlanduse function**); 
+1) Downloading a set of land use related data from OSM using the overpass API: (**get_osmlanduse function**); 
 
-2) Remove overlaps, measure polygon area and classify polygons by mapping OSM tags to user-defined classes 
+2) Removing overlaps, measuring polygon area and classifying polygons by mapping OSM tags to user-defined classes 
 (**classify_osmlandse function**).
 
-3) Provide example data sets for the translation of OSM land use tags to classification systems with extended use, such as the CORINE Land Cover and FAO Land Cover Classification System.
+3) Providing example datasets for the translation of OSM land use related tags into other classification systems, such as the CORINE Land Cover and FAO Land Cover Classification System.
 
-4) Create a land use classification map 
+4) Creating a land use classification map 
 (**map_osmlandse function**). 
 
 
@@ -242,21 +242,30 @@ The package comprises a number of features aimed at:
 
 ### 1. _get_osmlanduse_ function
 
-The _get_osmlanduse_ function takes as argument an objective region that can be defined as a polygon element in _sf_ (simple features) format or as a character string containing the name of a region. 
+The _get_osmlanduse_ function requires two arguments;
 
-These input data is used to obtain the bounding box to set the overpass API query. 
+1) _area_: An objective region, defined as a polygon element in _sf_ (simple features) format or as a character string containing the name of a region. 
+
+This input data is used to obtain the bounding box to set the overpass API query.
+
+2) _crop_to_: A character string indicating if the final result should be cropped
+to the area polygon or to the bounding box.
+
+
+
+<!-- The get_osmlanduse function requires as possible arguments, on the one hand an objective region that can be defined as a polygon element in sf (simple features) format, and on the other hand a character string containing the name of a region. -->
 
 ## `r fa("r-project", fill = "steelblue")` package implementation
 
 ### 1. _get_osmlanduse_ function
 
-The OSM features retrieved are those tagged as $natural= *$, $landuse= *$, $amenity = *$, $aeroway = *$ and $leisure = *$. 
+The OSM retrieved features are those tagged as $natural= *$, $landuse= *$, $amenity = *$, $aeroway = *$ and $leisure = *$. 
 
-At present, only the polygon objects are considered in the function implementation. 
+At present, only the polygon objects are taken into account in the function implementation. 
 
 Finally, the invalid geometries are fixed and a list containing the objective area and the land use data is returned.
 
-The land use data is optionally intersected by the input polygon or the bounding box.
+<!-- The land use data is optionally intersected by the input polygon or the bounding box. -->
 
 ## `r fa("r-project", fill = "steelblue")` package implementation
 
@@ -345,7 +354,7 @@ lujan.clc <- classify_osmlanduse(lujan$osmlanduse,
 ```{r mapclc, echo = TRUE, eval=FALSE}
 map_osmlanduse(lujan.clc, "Partido de Luján")
 ```
-![](img/lujanclc.png){width=90%}
+![](img/lujanmap.png)
 
 
 ## Example application: Land use map of Luján
@@ -354,7 +363,7 @@ The methods developed in the package _osmlanduseR_ were used to download the ele
 
 The geometric operations oriented to remove overlapping were successfully accomplished, and the matching of the present tags with a user-defined list of land use classes.
 
-The land use polygons retrieved from OSM in the municipality of Luján were found to cover 71742.8 ha, or 92.8% of the total area.
+The land use polygons retrieved from OSM in the municipality of Luján were found to cover over 71742.8 ha, or 92.8% of the total area.
 
 ## Example application: Flood risk and land use classes in Luján
 
@@ -365,15 +374,16 @@ The corresponding area for the Luján city was selected a map of land use classe
 ```{r flood risk, echo=TRUE, eval=FALSE}
 fr <- get_osmlanduse(floodrisk)
 fr.intafao <- classify_osmlanduse(fr$osmlanduse,
-                                                 intafao$osm_tag,
-                                                 intafao$class_name)
-map_osmlanduse(fr.intafao,"Land use and flood risk in Luján.")
+                intafao$osm_tag,
+                intafao$class_name)
+map_osmlanduse(fr.intafao,
+               "Land use and flood risk in Luján.")
 ```
 
 
 ## Example application: Flood risk and land use classes in Luján
 
-![](img/frlujan-intafao.png)
+![](img/frlujan-intafao.png){width=90%}
 
 
 # Future work and new features.
@@ -384,9 +394,9 @@ The results obtained in the development of osmlanduseR represent a preliminary m
 
 ## Future work and new features.
 
-## Linear elements
+### Linear elements
 
-Including linear elements, such as those related to the road and rail network or the waterways into the analysis of land use could be made as proposed by @Fonte2016,
+Including linear elements, such as those related to the road and rail network or the waterways into the analysis of land use, could be made as proposed by @Fonte2016,
 provided that the appropriate assumptions are made regarding the width of each linear element.
 
 ## Future work and new features.
@@ -401,7 +411,9 @@ This can be accomplished by using the tree decision approach proposed by @Arsanj
 
 ### Filling gaps
 
-In their study, @Schultz2017 described a method for using the information available in OSM as a training tool for supervised classification of remote sensing data, with the objective of filling data gaps. 
+In their study, @Schultz2017 described a method for using the information available in OSM as a training tool for supervised classification of remote sensing data.
+
+<!-- Its objectiv....with the objective of filling data gaps.  -->
 
 <!-- Integration with sits package [@Simoes2021a] -->
 
@@ -429,7 +441,7 @@ Additionally, the developed package provides a basis for integrating additional 
 
 ## Conclusions
 
-Among them, it is critical to continue improving osmlanduseR to allow the use of OSM tags as training to categorize unknown areas from remotely sensed imagery, and inferring land use classes from POIs, buildings, or linear features. It is also necessary to incorporate methods for calculating map accuracy. 
+Regarding them, it is critical to continue improving osmlanduseR to allow the use of OSM tags as training to categorize unknown areas from remotely sensed imagery, and inferring land use classes from POIs, buildings, or linear features. It is also necessary to incorporate methods for calculating map accuracy. 
 
 ## Conclusions
 
