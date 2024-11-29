@@ -36,14 +36,17 @@ lezica <- get_osmlanduse(area, crop_to = "bbox")
 
 ```
 data(clc)
-lezica.clc <- classify_osmlanduse(lezica$landuse,osm_tag = clc$osm_tag,
-class_name = clc$class_name)
+lezica.clc <- classify_osmlanduse(lezica$osmlanduse,
+                osm_tag = clc$osm_tag,
+                class_name = clc$class_name)
 ```
 
 - Map
 
 ```
-map_osmlanduse(lezica.clc, title = "Lezica y Torrezuri, Luján")
+map_osmlanduse(lezica.clc, 
+                  title = "Lezica y Torrezuri, Luján",
+                  component.autoscale = FALSE)
 ```
 
 ![](img/lezicamap.png )
