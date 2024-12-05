@@ -131,8 +131,9 @@ Despite its redundancy)  -->
 The analysis of these changes in land use requires information typically obtained from remote sensing, which is validated and complemented with sampling programs.
 
 
+The development of an updated land use map is a basic tool to study territorial phenomena such as flooding or land use change. 
 
-The development of an updated land use map is a basic tool to study territorial phenomena such as flooding or land use change. Such an approach would enable the information to be compared to previously collected data on various scales and time periods.
+Such an approach would enable the information to be compared to previously collected data on various scales and time periods.
 
 ## Introduction
 
@@ -194,11 +195,27 @@ Such an approach would facilitate harmonization of OSM data with other classific
 
 ## Creation of a land use map in OpenStreetMap
 
+:::::::::::::: {.columns}
+::: {.column width=20%}
+![](img/addingpolygons.png){width=3cm}
+:::
+::: {.column width="5%"}
+\ 
+<!-- an empty Div (with a white space), serving as
+a column separator -->
+:::
+::: {.column width="70%"}
 Since 2016, land use data of the Lujan River’s middle basin has been contributed to OSM as part of projects carried out by the National University of Luján. 
 
 Land use was visually assessed using satellite imagery, and representative polygons were added with appropriate tags. Geometries were created preferably as multipolygons. 
+:::
+::::::::::::::
+
+
 
 ## Creation of a land use map in OpenStreetMap
+
+![](img/josm-pueblonuevo-lujan.png)
 
 The boundaries of each geometry were drawn to avoid sharing nodes with the road and rail networks. 
 
@@ -322,9 +339,9 @@ The implemented procedures use functions from the packages
 [@Padgham2017; @Pebesma2018; @Tennekes2018]
 
 
-# Example application
+# Example application: Land use map of Luján
 
-## Example application: Basic usage
+## Example application: Land use map of Luján
 
 - By calling the function **get_osmlanduse** with default arguments, the land use data of Luján in Buenos Aires, Argentina is downloaded:
 
@@ -335,7 +352,7 @@ The implemented procedures use functions from the packages
 
 ![](img/lujan_osmlanduse.png){width=80%}
 
-## Example application: Basic usage
+## Example application: Land use map of Luján
 
 - The result can then be classified into the classes of the CORINE Land Cover scheme
 <!-- using the data set _clc_ -->
@@ -349,85 +366,125 @@ lujan.clc <- classify_osmlanduse(lujan$osmlanduse,
 
 ![](img/lujan.clc.png){width=90%} 
 
-## Example application: Basic usage
+## Example application: Land use map of Luján
 
 ```{r mapclc, echo = TRUE, eval=FALSE}
-map_osmlanduse(lujan.clc, "Partido de Luján")
+map_osmlanduse(lujan.clc, title = "")
 ```
 ![](img/lujanmap.png){width=90%}
+## Example application: Land use map of Luján
+
+- Or can then be classified into the classes proposed by the INTA - FAO system: 
+<!-- using the data set _clc_ -->
+
+```{r intafao, echo = TRUE, eval=FALSE}
+data(intafao)
+lujan.intafao <- classify_osmlanduse(lujan$osmlanduse, 
+                                       intafao$osm_tag,
+                                       intafao$class_name) 
+```
 
 
 ## Example application: Land use map of Luján
-
-
+```{r mapintafao, echo = TRUE, eval=FALSE}
+map_osmlanduse(lujan.intafao, title = "")
+```
 ![](img/lujanmap-intafao.png){width=90%}
 
 ## Example application: Land use map of Luján
 
-The methods developed in the package _osmlanduseR_ were used to download the elements associated with land use from OSM. 
+`r fa("square-poll-vertical")` The land use polygons retrieved from OSM in the municipality of Luján were found to cover over 71742.8 ha, or 92.8% of the total area.
 
-The geometric operations oriented to remove overlapping were successfully accomplished, and the matching of the present tags with a user-defined list of land use classes.
+`r fa("check")` The methods developed in the package _osmlanduseR_ were used to download the elements associated with land use from OSM. 
 
-The land use polygons retrieved from OSM in the municipality of Luján were found to cover over 71742.8 ha, or 92.8% of the total area.
+`r fa("check")` The geometric operations oriented to remove overlapping and measure areas were successfully accomplished,
+
+`r fa("check")` and the existing tags were matched against a user-defined list of land use classes.
+
+
+# Example application: Flood risk and land use classes in Luján
 
 ## Example application: Flood risk and land use classes in Luján
 
-The Buenos Aires province produced flood risk maps for the Luján river basin.
+The government of the province of Buenos Aires has produced flood risk maps for the Luján River basin. The corresponding area for the city of Luján was selected:
 
-The corresponding area for the Luján city was selected a map of land use classes:
+```{r mapview-floodrisk, echo=TRUE, eval=FALSE}
+mapview::mapview(floodrisk)
+```
+
+![](img/floodrisk-mapview.png){height=5cm}
+
+## Example application: Flood risk and land use classes in Luján
+
+
 
 ```{r flood risk, echo=TRUE, eval=FALSE}
 fr <- get_osmlanduse(floodrisk)
 fr.intafao <- classify_osmlanduse(fr$osmlanduse,
                 intafao$osm_tag,
                 intafao$class_name)
-map_osmlanduse(fr.intafao,
-               "Land use and flood risk in Luján.")
+frmap <- map_osmlanduse(fr.intafao)
+tm_shape(lujan$area) + tm_polygons() + frmap
 ```
 
 
 ## Example application: Flood risk and land use classes in Luján
 
-![](img/frlujan-intafao.png){width=90%}
+![](img/floodriskmap.png){width=90%}
 
 
 # Future work and new features.
 
 ## Future work and new features.
 
-The results obtained in the development of _osmlanduseR_ represent a preliminary model for the incorporation of additional functions and other features documented in previous research. 
+<!-- ## Future work and new features. -->
 
-## Future work and new features.
+<!-- The results obtained in the development of _osmlanduseR_ represent a preliminary model for the incorporation of additional functions and other features documented in previous research.  -->
+
+:::::::::::::: {.columns}
+::: {.column width=20%}
+![](img/lujan_linear_map.png){width=3cm}
+:::
+::: {.column width="5%"}
+\ 
+<!-- an empty Div (with a white space), serving as
+a column separator -->
+:::
+::: {.column width="70%"}
 
 ### Linear elements
 
-Linear elements, such as those associated with the road and rail network or waterways, could be included in the land use analysis, provided that appropriate assumptions are made about the width of each linear element, as suggested by @Fonte2016.
+<!-- Linear elements, such as those associated with the road and rail network or waterways, could be included in the land use analysis, provided that appropriate assumptions are made about the width of each linear element, as suggested by @Fonte2016. -->
 
-## Future work and new features.
+Such as road and rail networks or waterways, could be included making the appropriate assumptions about their width.
+
 
 ### Inference from other map elements
 
-The current stage of the _osmlanduseR_ package enables the incorporation of a tool that allows the inference of land use from elements such as POIs, buildings, road network, tags combination, etc.
+Elements such as POIs, buildings, road network, tag combinations could be used as indicators. 
 
-This can be accomplished by using the tree decision approach proposed by @Arsanjani2013. 
+<!-- This can be accomplished by using the tree decision approach proposed by @Arsanjani2013.  -->
+
+:::
+::::::::::::::
+
+
 
 ## Future work and new features.
 
 ### Filling gaps
 
-In their study, @Schultz2017 described a method for using the information available in OSM as a training tool for supervised classification of remote sensing data.
+The information available in OSM could be used as training areas for supervised classification of remote sensing data [@Schultz2017; @Simoes2021a].
 
-There are also R packages that can be integrated with this intention. For example, the _sits_ package [@Simoes2021a].
+<!-- There are also R packages that can be integrated with this intention. For example, the _sits_ package [@Simoes2021a]. -->
 
 <!-- Its objectiv....with the objective of filling data gaps.  -->
 
 <!-- Integration with sits package [@Simoes2021a] -->
 
-## Future work and new features.
-
 ### Map accuracy
 
-An important component to be added in the future is a method for estimating the accuracy of a classification derived from other sources or constructed by other methods in a given area.
+Is necesary to continue working to add a method for estimating the accuracy of a classification derived from other sources or constructed by other methods in a given area.
 
 ## Future work and new features.
 
@@ -435,23 +492,43 @@ An important component to be added in the future is a method for estimating the 
 
 One feature to be added in future work is the ability to integrate the package with workflows for enhancing OSM map data.
 
-The package can implement detection of problems such as overlapping, tag consistency, invalid geometries, etc.
+`r fa("bug-slash")` Detection of problems such as overlapping, tag consistency, invalid geometries, 
+
+`r fa("file-pen")` or to select the areas in which information is needed.
 
 # Conclusions
 
 ## Conclusions
 
+\centering
+
+`r fa("map")` 
+
 The work conducted since the initial development of _osmlanduseR_ has made it possible to use data from OSM for land use analysis and to implement a classification system.
+
+`r fa("puzzle-piece")` 
 
 Additionally, the developed package provides a basis for integrating additional complementary methodologies referenced in previous research into a unified platform.
 
+<!-- ## Conclusions -->
+
+<!-- Regarding them, it is critical to continue improving _osmlanduseR_ to allow the use of OSM tags as training to categorize unknown areas from remotely sensed imagery, and inferring land use classes from POIs, buildings, or linear features. It is also necessary to incorporate methods for calculating map accuracy.  -->
+
 ## Conclusions
 
-Regarding them, it is critical to continue improving _osmlanduseR_ to allow the use of OSM tags as training to categorize unknown areas from remotely sensed imagery, and inferring land use classes from POIs, buildings, or linear features. It is also necessary to incorporate methods for calculating map accuracy. 
+\centering
 
-## Conclusions
+`r fa("tasks")` 
 
-Finally, the approach of _osmlanuseR_ enables a systematic analysis of the information available in OSM, resulting in a new tool that can be integrated into participatory mapping processes and used to enhance initiatives for open and public access to information.
+Finally, the approach of _osmlanuseR_ enables a systematic analysis of the information available in OSM, 
+
+`r fa("wrench")` 
+
+Resulting in a new tool that can be integrated into participatory mapping processes.
+
+`r fa("door-open")`
+
+And can be used to enhance initiatives for open and public access to information.
 
 ## Thank you! - ¡Muchas gracias!
 
