@@ -11,7 +11,7 @@
 #' (method \code{hierarchichal}),
 #' then adds a column with the area measure.
 #'
-#' The default coordinate reference system is POSGAR 2007,
+#' The default coordinate reference system is EPSG:5347 (POSGAR 2007),
 #' adopted by the National Geographic Institute for Argentina.
 #'
 #' @references Schultz, M.; Vossa, J.; Auera, M.; Carterb, S. & Zipf, A. 2017.
