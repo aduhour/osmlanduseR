@@ -42,14 +42,13 @@
 #' @importFrom sf st_transform
 #' @importFrom sf st_overlaps
 #' @importFrom sf st_area
-#' @importFrom sf st_union
 #' @importFrom sf st_difference
 #' @export
 classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
                                 crs=5347, units="ha", priority = NULL,
                                 method = "smaller"){
 
-  osmlanduse <-  st_transform(osmlanduse,crs)
+  osmlanduse <-  sf::st_transform(osmlanduse,crs)
 
   methods <- c("smaller", "hierarchical")
 
@@ -93,7 +92,7 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
 
   # Pairs of overlapping polygons:
 
-  overlaps <- as.data.frame(st_overlaps(osmlanduse,retain_unique=TRUE))
+  overlaps <- as.data.frame(sf::st_overlaps(osmlanduse,retain_unique=TRUE))
 
   # Vector of rows representing overlapping polygons:
 
@@ -113,7 +112,7 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
 
       # Measure area in overlapping polygons and adds the column with the data.
 
-      osmlanduse_overlap$area <-  st_area(osmlanduse_overlap)
+      osmlanduse_overlap$area <-  sf::st_area(osmlanduse_overlap)
 
       # Select method to remove overlapping.
 
@@ -140,11 +139,15 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
       # As the overlapping polygons were ordered following the selected method,
       # this line removes overlapping:
 
-      osmlanduse_overlap <- st_make_valid(osmlanduse_overlap)
+      osmlanduse_overlap <- sf::st_make_valid(osmlanduse_overlap)
 
-      osmlanduse_overlap <- st_difference(osmlanduse_overlap)
+      osmlanduse_overlap <- sf::st_difference(osmlanduse_overlap)
 
-      osmlanduse_overlap_removed <- subset(osmlanduse_overlap,select = names(osmlanduse_not_overlap))
+      # Removes column with temporary measures of area for overlapping removal.
+
+      osmlanduse_overlap_removed <- osmlanduse_overlap[,names(osmlanduse_not_overlap)]
+
+      # Unifies dataset binding overlapping and non overlapping rows
 
       osmlanduse <- rbind(osmlanduse_overlap_removed,osmlanduse_not_overlap)
 
@@ -160,9 +163,11 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
    # Once removed overlapping, it measures the area.
    # -----------------------------------------------
 
-   area <- st_area(osmlanduse)
+   area <- sf::st_area(osmlanduse)
 
    units(area) <- units
+
+   # Returns result
 
    osmlanduse <- cbind(osmlanduse,area)
 

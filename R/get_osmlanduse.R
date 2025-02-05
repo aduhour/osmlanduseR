@@ -36,14 +36,14 @@ get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
 
 
   if (class(area)[1]=="sf"){
-      area <- st_transform(area,4326)
-      bbox <- st_bbox(area)
+      area <- sf::st_transform(area,4326)
+      bbox <- sf::st_bbox(area)
 
     } else if (is.character(area)){
 
-      area <- getbb(area, format_out = "sf_polygon")
+      area <- osmdata::getbb(area, format_out = "sf_polygon")
 
-      bbox <- st_bbox(area)
+      bbox <- sf::st_bbox(area)
 
     } else
     {stop("area must be of class 'sf' or 'character'")}
@@ -51,24 +51,24 @@ get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
 
 # Build Overpass query
 
-area_opq <- opq(bbox,timeout = 50)
+area_opq <- osmdata::opq(bbox,timeout = 50)
 
 
 ### Download polygons
-natural <- add_osm_feature(area_opq,key = "natural") |>
+natural <- osmdata::add_osm_feature(area_opq,key = "natural") |>
   osmdata_sf()
 
-landuse <- add_osm_feature(area_opq,key = "landuse") |>
+landuse <- osmdata::add_osm_feature(area_opq,key = "landuse") |>
   osmdata_sf()
 
-amenity <- add_osm_feature(area_opq,key = "amenity") |>
+amenity <- osmdata::add_osm_feature(area_opq,key = "amenity") |>
   osmdata_sf()
 
-aeroway <- add_osm_feature(area_opq,key = "aeroway",
+aeroway <- osmdata::add_osm_feature(area_opq,key = "aeroway",
                                       value = "aerodrome") |>
   osmdata_sf()
 
-leisure <- add_osm_feature(area_opq,key = "leisure") |>
+leisure <- osmdata::add_osm_feature(area_opq,key = "leisure") |>
   osmdata_sf()
 
 
@@ -79,17 +79,17 @@ leisure <- add_osm_feature(area_opq,key = "leisure") |>
 
 ## waterway
 
-# waterway <- add_osm_feature(area_opq,key = "waterway") |>
+# waterway <- osmdata::add_osm_feature(area_opq,key = "waterway") |>
 #   osmdata_sf()
 #
 # # highway
 #
-# highway <- add_osm_feature(area_opq,key = "highway") |>
+# highway <- osmdata::add_osm_feature(area_opq,key = "highway") |>
 #   osmdata_sf()
 #
 # # railway
 #
-# railway <- add_osm_feature(area_opq,key = "railway") |>
+# railway <- osmdata::add_osm_feature(area_opq,key = "railway") |>
 #                 osmdata_sf()
 
 
@@ -98,7 +98,7 @@ leisure <- add_osm_feature(area_opq,key = "leisure") |>
 
 if(nrow(natural$osm_polygons) > 0 & !is.null(natural$osm_multipolygons)){
 
-  natural <- rbind(st_cast(subset(natural$osm_polygons,
+  natural <- rbind(sf::st_cast(subset(natural$osm_polygons,
                                   subset = !is.na(natural),
                                   select="natural"),"MULTIPOLYGON"),
                    subset(natural$osm_multipolygons,
@@ -110,7 +110,7 @@ if(nrow(natural$osm_polygons) > 0 & !is.null(natural$osm_multipolygons)){
 
 } else if(nrow(natural$osm_polygons) > 0){
 
-   natural <- st_cast(subset(natural$osm_polygons,
+   natural <- sf::st_cast(subset(natural$osm_polygons,
                              subset = !is.na(natural),
                              select="natural"),"MULTIPOLYGON")
    names(natural)[1] <- "value"
@@ -127,7 +127,7 @@ if(nrow(natural$osm_polygons) > 0 & !is.null(natural$osm_multipolygons)){
 }
 
 if(nrow(landuse$osm_polygons) > 0 & !is.null(landuse$osm_multipolygons)){
-  landuse <- rbind(st_cast(subset(landuse$osm_polygons,
+  landuse <- rbind(sf::st_cast(subset(landuse$osm_polygons,
                                   subset = !is.na(landuse),
                                   select="landuse"),"MULTIPOLYGON"),
                    subset(landuse$osm_multipolygons,
@@ -139,7 +139,7 @@ if(nrow(landuse$osm_polygons) > 0 & !is.null(landuse$osm_multipolygons)){
 
 } else if(nrow(landuse$osm_polygons) > 0){
 
-  landuse <- st_cast(subset(landuse$osm_polygons,
+  landuse <- sf::st_cast(subset(landuse$osm_polygons,
                             subset = !is.na(landuse),
                             select="landuse"),"MULTIPOLYGON")
   names(landuse)[1] <- "value"
@@ -159,7 +159,7 @@ if(nrow(landuse$osm_polygons) > 0 & !is.null(landuse$osm_multipolygons)){
 
 
 if(nrow(amenity$osm_polygons) > 0 & !is.null(amenity$osm_multipolygons)){
-  amenity <- rbind(st_cast(subset(amenity$osm_polygons,
+  amenity <- rbind(sf::st_cast(subset(amenity$osm_polygons,
                                   subset = !is.na(amenity),
                                   select="amenity"),"MULTIPOLYGON"),
                    subset(amenity$osm_multipolygons,
@@ -171,7 +171,7 @@ if(nrow(amenity$osm_polygons) > 0 & !is.null(amenity$osm_multipolygons)){
 
 } else if(nrow(amenity$osm_polygons) > 0){
 
-  amenity <- st_cast(subset(amenity$osm_polygons,
+  amenity <- sf::st_cast(subset(amenity$osm_polygons,
                             subset = !is.na(amenity),
                             select="amenity"),"MULTIPOLYGON")
   names(amenity)[1] <- "value"
@@ -189,7 +189,7 @@ if(nrow(amenity$osm_polygons) > 0 & !is.null(amenity$osm_multipolygons)){
 }
 
 if(nrow(aeroway$osm_polygons) > 0 & !is.null(aeroway$osm_multipolygons)){
-  aeroway <- rbind(st_cast(subset(aeroway$osm_polygons,
+  aeroway <- rbind(sf::st_cast(subset(aeroway$osm_polygons,
                                   subset = !is.na(aeroway),
                                   select="aeroway"),"MULTIPOLYGON"),
                    subset(aeroway$osm_multipolygons,
@@ -201,7 +201,7 @@ if(nrow(aeroway$osm_polygons) > 0 & !is.null(aeroway$osm_multipolygons)){
 
 } else if(nrow(aeroway$osm_polygons) > 0){
 
-  aeroway <- st_cast(subset(aeroway$osm_polygons,
+  aeroway <- sf::st_cast(subset(aeroway$osm_polygons,
                             subset = !is.na(aeroway),
                             select="aeroway"),"MULTIPOLYGON")
   names(aeroway)[1] <- "value"
@@ -220,7 +220,7 @@ if(nrow(aeroway$osm_polygons) > 0 & !is.null(aeroway$osm_multipolygons)){
 
 
 if(nrow(leisure$osm_polygons) > 0 & !is.null(leisure$osm_multipolygons)){
-  leisure <- rbind(st_cast(subset(leisure$osm_polygons,
+  leisure <- rbind(sf::st_cast(subset(leisure$osm_polygons,
                                   subset = !is.na(leisure),
                                   select="leisure"),"MULTIPOLYGON"),
                    subset(leisure$osm_multipolygons,
@@ -232,7 +232,7 @@ if(nrow(leisure$osm_polygons) > 0 & !is.null(leisure$osm_multipolygons)){
 
 } else if(nrow(leisure$osm_polygons) > 0){
 
-  leisure <- st_cast(subset(leisure$osm_polygons,
+  leisure <- sf::st_cast(subset(leisure$osm_polygons,
                             subset = !is.na(leisure),
                             select="leisure"),"MULTIPOLYGON")
   names(leisure)[1] <- "value"
@@ -277,24 +277,24 @@ if(nrow(leisure$osm_polygons) > 0 & !is.null(leisure$osm_multipolygons)){
 # }
 
 osmlanduse <- rbind(natural,landuse,amenity,aeroway,
-                        leisure) # waterway,highway,railway) |>
+                        leisure) # waterway,highway,railway)
 
 
 # Set crs and converts bounding box to sf
 
-bbox <- st_set_crs(bbox,st_crs(osmlanduse)) |>
-  st_as_sfc()
+bbox <- sf::st_set_crs(bbox,sf::st_crs(osmlanduse)) |>
+  sf::st_as_sfc()
 
-osmlanduse <- st_make_valid(osmlanduse)
+osmlanduse <- sf::st_make_valid(osmlanduse)
 
 if (crop_to == "area"){
-  osmlanduse <- st_intersection(osmlanduse, area)
+  osmlanduse <- sf::st_intersection(osmlanduse, area)
 } else if (crop_to == "bbox"){
-  osmlanduse <- st_intersection(osmlanduse, bbox)
+  osmlanduse <- sf::st_intersection(osmlanduse, bbox)
 
 }
 
-osmlanduse <-  st_make_valid(osmlanduse)
+osmlanduse <-  sf::st_make_valid(osmlanduse)
 
 osmlanduse <- list(area = area, osmlanduse=osmlanduse)
 

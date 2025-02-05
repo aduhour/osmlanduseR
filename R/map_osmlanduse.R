@@ -17,14 +17,14 @@
 #' @importFrom stats aggregate
 #' @export
 map_osmlanduse <- function(classified, title = "osmlanduseR map",...){
-  lndagg <- aggregate(subset(classified,select = "area"),
+  aggregated <- aggregate(classified[,"area"],
                       by=list("Land use class" = classified$class_name),
                       FUN = sum)
-  map <-  tmap::tm_shape(lndagg) +
+  map <-  tmap::tm_shape(aggregated) +
     tmap::tm_polygons(fill = "Land use class",
-                      fill.scale = tmap::tm_scale_categorical(values = "cols4all.area7")) +
+  fill.scale = tmap::tm_scale_categorical(values = "cols4all.area7")) +
     tmap::tm_add_legend(type = "polygons", title = "Area (ha)",
-                        labels = round(lndagg$area,1),
+                        labels = round(aggregated$area,1),
                         fill="white",col="white")+
     tmap::tm_compass(position = c("left","top")) +
     tmap::tm_scalebar() +
