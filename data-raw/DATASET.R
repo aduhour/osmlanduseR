@@ -19,9 +19,19 @@
 # help("use_data")
 
 clc <- read.csv("data-raw/clc.csv")
-use_data(clc, overwrite = TRUE)
+write.csv(clc,file = "data-raw/clc.csv",fileEncoding = "UTF-8")
+use_data(clc, overwrite = TRUE,)
+
+
 
 
 intafao <- read.csv("data-raw/intafao.csv")
+
+# convertir a UTF-8
+intafao$class_name  <- iconv(intafao$class_name,to = "UTF-8")
+intafao$class_name_short <- iconv(intafao$class_name_short, to = "UTF-8")
+
 use_data(intafao, overwrite = TRUE)
 document()
+
+
