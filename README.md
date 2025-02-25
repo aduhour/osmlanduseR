@@ -44,8 +44,8 @@ lezica.clc <- classify_osmlanduse(lezica$osmlanduse,
 - Map
 
 ```
-map_osmlanduse(lezica.clc, 
-                  title = "Lezica y Torrezuri, Luján",
+map_osmlanduse(lezica.clc$classified,
+  title = "Lezica y Torrezuri, Luján",
                   component.autoscale = FALSE)
 ```
 
