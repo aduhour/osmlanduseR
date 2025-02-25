@@ -10,9 +10,9 @@
 #' area <-  "Lezica y Torrezuri, Partido de Luján"
 #' lezica <- get_osmlanduse(area, crop_to = "bbox")
 #' data(clc)
-#' classified <- classify_osmlanduse(lezica$osmlanduse,osm_tag = clc$osm_tag,
+#' lezica.clc <- classify_osmlanduse(lezica$osmlanduse,osm_tag = clc$osm_tag,
 #' class_name = clc$class_name)
-#' map <- map_osmlanduse(classified)
+#' map <- map_osmlanduse(lezica.clc$classified)
 #' map
 #' @importFrom stats aggregate
 #' @export
@@ -34,7 +34,9 @@ map_osmlanduse <- function(classified, title = "osmlanduseR map",...){
                     legend.outside = TRUE,
                     legend.outside.position = "bottom",
                     ...)
-  map
+  result <- list(aggregated= aggregated, map = map)
+
+  result
 }
 
 

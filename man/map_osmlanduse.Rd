@@ -23,8 +23,8 @@ Map land use classified
 area <-  "Lezica y Torrezuri, Partido de Luján"
 lezica <- get_osmlanduse(area, crop_to = "bbox")
 data(clc)
-classified <- classify_osmlanduse(lezica$osmlanduse,osm_tag = clc$osm_tag,
+lezica.clc <- classify_osmlanduse(lezica$osmlanduse,osm_tag = clc$osm_tag,
 class_name = clc$class_name)
-map <- map_osmlanduse(classified)
+map <- map_osmlanduse(lezica.clc$classified)
 map
 }

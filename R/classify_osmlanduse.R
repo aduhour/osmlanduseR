@@ -43,12 +43,13 @@
 #' @importFrom sf st_overlaps
 #' @importFrom sf st_area
 #' @importFrom sf st_difference
+#' @importFrom sf st_geometry_type
 #' @export
 classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
                                 crs=5347, units="ha", priority = NULL,
                                 method = "smaller"){
 
-  osmlanduse <-  sf::st_transform(osmlanduse,crs)
+   osmlanduse <-  sf::st_transform(osmlanduse,crs)
 
   methods <- c("smaller", "hierarchical")
 
@@ -102,7 +103,7 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
 
     if(sum(overlap) > 0){
 
-      # Filter not overlapping polygons
+      # Filter non overlapping polygons
 
       osmlanduse_not_overlap <- osmlanduse[-overlap,]
 
@@ -143,21 +144,30 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
 
       osmlanduse_overlap <- sf::st_difference(osmlanduse_overlap)
 
-      # Removes column with temporary measures of area for overlapping removal.
+      # Remove column with temporary measures of area for overlapping removal.
 
       osmlanduse_overlap_removed <- osmlanduse_overlap[,names(osmlanduse_not_overlap)]
 
-      # Unifies dataset binding overlapping and non overlapping rows
+      # Unify dataset binding overlapping and non overlapping rows
 
       osmlanduse <- rbind(osmlanduse_overlap_removed,osmlanduse_not_overlap)
 
-        message(paste("There were", nrow(osmlanduse_overlap_removed),
+      # It is necessary to separate non-polygon objects in order to measure areas,
+      # make maps, and provide a list of these geometries to improve them in OSM.
+
+      is_polygon <- sf::st_geometry_type(osmlanduse)=="POLYGON" | sf::st_geometry_type(osmlanduse)=="MULTIPOLYGON"
+
+      non_polygon <- osmlanduse[!is_polygon,]
+
+      osmlanduse <- osmlanduse[is_polygon,]
+
+      message(paste("There were", nrow(osmlanduse_overlap_removed),
                     "overlapping polygons" ))
-    } else {
+        } else {
 
-      message("There is no overlapping polygons")
+         message("There is no overlapping polygons")
 
-    }
+      }
 
    # -----------------------------------------------
    # Once removed overlapping, it measures the area.
@@ -170,6 +180,13 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
    # Returns result
 
    osmlanduse <- cbind(osmlanduse,area)
+
+   if (!all(is_polygon)){
+     message(paste("There were", sum(!is_polygon),
+                   "non polygon objects" ))
+   } else non_polygon <- NA
+
+   osmlanduse <- list(classified = osmlanduse, non_polygon = non_polygon)
 
    osmlanduse
 }
