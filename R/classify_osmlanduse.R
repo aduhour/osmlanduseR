@@ -49,7 +49,7 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
                                 crs=5347, units="ha", priority = NULL,
                                 method = "smaller"){
 
-   osmlanduse <-  sf::st_transform(osmlanduse,crs)
+  osmlanduse <-  sf::st_transform(osmlanduse,crs)
 
   methods <- c("smaller", "hierarchical")
 

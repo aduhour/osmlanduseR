@@ -51,7 +51,7 @@ get_osmlanduse <- function(area="Partido de Lujan", crop_to = "area"){
 
 # Build Overpass query
 
-area_opq <- osmdata::opq(bbox,timeout = 50)
+area_opq <- osmdata::opq(bbox,timeout = 250)
 
 
 ### Download polygons
