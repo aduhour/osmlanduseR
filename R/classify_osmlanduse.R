@@ -44,6 +44,7 @@
 #' @importFrom sf st_area
 #' @importFrom sf st_difference
 #' @importFrom sf st_geometry_type
+#' @importFrom sf st_as_sf
 #' @export
 classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
                                 crs=5347, units="ha", priority = NULL,
@@ -141,8 +142,6 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
       # this line removes overlapping:
 
       osmlanduse_overlap <- sf::st_make_valid(osmlanduse_overlap)
-
-      osmlanduse_overlap <- sf::st_difference(osmlanduse_overlap)
 
       # Remove column with temporary measures of area for overlapping removal.
 
