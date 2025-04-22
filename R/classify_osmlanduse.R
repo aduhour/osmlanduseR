@@ -32,7 +32,9 @@
 #' @param priority A vector of the same length of \code{osm_tag}, assigning
 #' integers from 1 (greater priority) to the number of land use classes.
 #' @param method The method to resolve orverlapping polygons (see Details).
-#' @return An sf object with the classified land use classes and area measures added.
+#' @return A list with an sf object with the classified land use classes and
+#' area measures added, and an sf object with non polygon elements that could be
+#' used to solve mapping issues.
 #' @examples
 #' area <-  "Lezica y Torrezuri, Partido de Luján"
 #' lezica <- get_osmlanduse(area, crop_to = "bbox")
@@ -134,6 +136,8 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
 
       })
 
+      osmlanduse_overlap <- sf::st_make_valid(osmlanduse_overlap)
+
       # When st_difference is called with a single argument,
       # overlapping areas are erased from geometries that are indexed
       # at greater numbers in the argument to x
@@ -141,7 +145,7 @@ classify_osmlanduse <- function(osmlanduse,  osm_tag, class_name,
       # As the overlapping polygons were ordered following the selected method,
       # this line removes overlapping:
 
-      osmlanduse_overlap <- sf::st_make_valid(osmlanduse_overlap)
+      osmlanduse_overlap <- sf::st_difference(osmlanduse_overlap)
 
       # Remove column with temporary measures of area for overlapping removal.
 

@@ -32,7 +32,9 @@ integers from 1 (greater priority) to the number of land use classes.}
 \item{method}{The method to resolve orverlapping polygons (see Details).}
 }
 \value{
-An sf object with the classified land use classes and area measures added.
+A list with an sf object with the classified land use classes and
+area measures added, and an sf object with non polygon elements that could be
+used to solve mapping issues.
 }
 \description{
 Classify OpenStreetMap tags into predefined land use classes,

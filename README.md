@@ -41,6 +41,11 @@ lezica.clc <- classify_osmlanduse(lezica$osmlanduse,
                 class_name = clc$class_name)
 ```
 
+After remove overlapping, the function returns a list with the following elements:
+--- `classified`: a `sf` object with the classified polygons
+--- `non_polygon`: a `sf` object with the overlapping polygons
+
+  
 - Map
 
 ```
